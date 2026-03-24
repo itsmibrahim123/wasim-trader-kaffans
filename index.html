@@ -561,7 +561,7 @@
   </section>
 
   <!-- SIZES -->
-  <section id="sizes">
+   <section id="sizes">
     <div class="container">
       <p class="section-label reveal">Sizing Guide</p>
       <h2 class="section-title reveal">Find the Right Fit</h2>
@@ -662,6 +662,7 @@
     </div>
   </section>
 
+
   <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="container">
@@ -712,7 +713,7 @@
           <div class="contact-detail">
             <div class="contact-item">
               <div class="contact-icon">✉</div>
-              <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="660f1107150f0b12140702031426010b070f0a4805090b">[email&#160;protected]</a></span>
+              <span>iwasimtrader@gmail.com</span>
             </div>
             <div class="contact-item">
               <div class="contact-icon">$</div>
@@ -759,10 +760,10 @@
     <div class="footer-logo">Wasim Trader Kaffans</div>
     <p class="footer-sub">Islamic Burial Garments · Est. with Purpose</p>
     <div class="footer-divider"></div>
-    <p class="footer-copy">© 2025 Wasim Trader Kaffans · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3059475143595d44425154554270575d51595c1e535f5d">[email&#160;protected]</a></p>
+    <p class="footer-copy">© 2025 Wasim Trader Kaffans · iwasimtrader@gmail.com</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // ── Tab switching ──
     function switchTab(id, btn) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -787,4 +788,13 @@
       const form = e.target;
       const name = form.querySelector('input[type="text"]').value;
       const email = form.querySelector('input[type="email"]').value;
-      const type = form.querySelector('select
+      const type = form.querySelector('select').value;
+      const msg = form.querySelector('textarea').value;
+      const subject = encodeURIComponent(type + ' — ' + name);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nType: ${type}\n\n${msg}`);
+      window.location.href = `mailto:iwasimtrader@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>
