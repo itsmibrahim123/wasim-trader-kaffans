@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wasim Trader Kaffans — Sunnah-Compliant Islamic Burial Garments for Masjids</title>
-  <meta name="description" content="Pre-cut, 100% white cotton burial garments crafted for community readiness. Complete sets ($25) and bulk wholesale cartons with rapid dispatch across the USA, Australia, and New Zealand." />
+  <title>Wasim Trader Kaffans — Sunnah-Compliant Islamic Burial Garments</title>
+  <meta name="description" content="Pre-cut, 100% white cotton burial garments crafted for community readiness. Complete sets ($25) with rapid dispatch across the USA, Australia, and New Zealand." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Wasim Trader Kaffans — Islamic Burial Garments" />
@@ -490,7 +490,7 @@
     }
 
     /* ──────────────────────────────────────────────────────────
-       KAFFANS / OFFERINGS SECTION (ONLY SECTION WITH IMAGES)
+       KAFFANS / SETS SECTION (THE ONLY SECTION WITH IMAGES)
        ────────────────────────────────────────────────────────── */
     #offerings {
       padding: 6.5rem 0;
@@ -498,10 +498,13 @@
       border-bottom: 1px solid var(--border-neutral);
     }
 
+    /* Clean 2-column balanced grid for the 2 Kaffan Sets */
     .offerings-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 920px;
+      margin: 0 auto;
+      gap: 2.25rem;
       align-items: stretch; /* Identical card heights */
     }
 
@@ -522,24 +525,29 @@
       border-color: #D1D5DB;
     }
 
-    /* Photo Container: 16:9, rounded corners, 1px neutral border */
+    /* Sized photo container: clean square frame, zero clipping with contain */
     .card-photo-wrap {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1 / 1;
+      max-height: 420px;
       position: relative;
-      background: #F3F4F6;
+      background: #FFFFFF;
       border-bottom: 1px solid var(--border-neutral);
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
     }
     .card-photo-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.3s ease;
     }
     .kaffan-card:hover .card-photo-wrap img {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
 
     /* Image fallback container if path fails */
@@ -566,7 +574,7 @@
     }
 
     .card-top-tag {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -575,12 +583,12 @@
     }
 
     .card-title {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       margin-bottom: 0.75rem;
       color: var(--text-main);
     }
 
-    /* Price Line: Fixed typo "$ 25 /sct" -> "$25 /set" */
+    /* Price Line: "$25 /set" */
     .card-price-line {
       display: flex;
       align-items: baseline;
@@ -589,19 +597,19 @@
     }
     .card-price-num {
       font-family: var(--font-serif);
-      font-size: 2.25rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: var(--text-main);
       line-height: 1;
     }
     .card-price-unit {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       font-weight: 500;
     }
 
     .card-shipping-text {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       margin-bottom: 1.25rem;
       line-height: 1.4;
@@ -610,11 +618,11 @@
     .card-badge {
       display: inline-block;
       align-self: flex-start;
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: #065F46;
       background: #D1FAE5;
-      padding: 0.25rem 0.65rem;
+      padding: 0.3rem 0.75rem;
       border-radius: 4px;
       margin-bottom: 1.25rem;
     }
@@ -629,17 +637,17 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.65rem;
       margin-bottom: 2rem;
       flex-grow: 1; /* Pushes button to bottom */
     }
     .card-pieces-list li {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-body);
       display: flex;
       align-items: flex-start;
       gap: 0.55rem;
-      line-height: 1.4;
+      line-height: 1.45;
     }
     .card-pieces-list li::before {
       content: '';
@@ -652,7 +660,7 @@
     }
 
     .card-action-btn {
-      margin-top: auto; /* Bottom aligned across all 3 cards */
+      margin-top: auto; /* Bottom aligned across both cards */
       width: 100%;
     }
 
@@ -834,49 +842,6 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.6;
-    }
-
-    /* ──────────────────────────────────────────────────────────
-       INSTITUTIONAL MASJID PARTNERSHIP HUB
-       ────────────────────────────────────────────────────────── */
-    #masjid {
-      padding: 6.5rem 0;
-      background: #111827;
-      color: #F9FAFB;
-      border-bottom: 1px solid #1F2937;
-    }
-    #masjid .section-badge {
-      background: rgba(255, 255, 255, 0.08);
-      color: #FBBF24;
-      border-color: rgba(251, 191, 36, 0.3);
-    }
-    #masjid .section-title {
-      color: #FFFFFF;
-    }
-    #masjid .section-desc {
-      color: #9CA3AF;
-    }
-
-    .masjid-pillars {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .masjid-card {
-      border: 1px solid #1F2937;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 8px;
-      padding: 2rem 1.5rem;
-    }
-    .masjid-card h3 {
-      color: #FFFFFF;
-      font-size: 1.25rem;
-      margin-bottom: 0.65rem;
-    }
-    .masjid-card p {
-      color: #9CA3AF;
-      font-size: 0.88rem;
-      line-height: 1.65;
     }
 
     /* ──────────────────────────────────────────────────────────
@@ -1269,13 +1234,7 @@
        RESPONSIVE BREAKPOINTS
        ────────────────────────────────────────────────────────── */
     @media (max-width: 992px) {
-      .offerings-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-      .sunnah-grid,
-      .masjid-pillars {
+      .sunnah-grid {
         grid-template-columns: 1fr 1fr;
       }
       .testimonials-grid {
@@ -1302,10 +1261,16 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .offerings-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+      }
+    }
+
     @media (max-width: 640px) {
       .form-grid-2,
-      .sunnah-grid,
-      .masjid-pillars {
+      .sunnah-grid {
         grid-template-columns: 1fr;
       }
       .hero h1 {
@@ -1328,7 +1293,7 @@
 
   <!-- TOP ANNOUNCEMENT BAR -->
   <aside class="top-bar">
-    <div>✦ Reliable Kaffan Supplies for <strong>Masjids, Funeral Committees &amp; Distributors</strong></div>
+    <div>✦ Sunnah-Compliant Islamic Burial Garments for <strong>Families &amp; Communities</strong></div>
     <div>USA · Australia · New Zealand · <span>Rapid Dispatch</span></div>
   </aside>
 
@@ -1342,11 +1307,10 @@
 
       <ul class="nav-links">
         <li><a href="#offerings">Kaffans &amp; Pricing</a></li>
-        <li><a href="#sizes">Sizing Guide</a></li>
+        <li><a href="#sizes">Sizing Matrix</a></li>
         <li><a href="#sunnah">Sunnah Guide</a></li>
-        <li><a href="#masjid">Masjid Partners</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#sample-request">Request Sample</a></li>
+        <li><a href="#sample-request">Contact &amp; Orders</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
 
@@ -1362,7 +1326,7 @@
           </select>
         </div>
 
-        <a href="#sample-request" class="btn btn-primary btn-sm">Request Sample</a>
+        <a href="#sample-request" class="btn btn-primary btn-sm">Order Set</a>
         <button type="button" class="mobile-menu-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation Menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" x2="20" y1="12" y2="12"></line>
@@ -1384,14 +1348,13 @@
       </div>
       <ul class="drawer-links">
         <li><a href="#offerings" onclick="toggleMobileDrawer()">Kaffans &amp; Pricing</a></li>
-        <li><a href="#sizes" onclick="toggleMobileDrawer()">Sizing Guide</a></li>
+        <li><a href="#sizes" onclick="toggleMobileDrawer()">Sizing Matrix</a></li>
         <li><a href="#sunnah" onclick="toggleMobileDrawer()">The Sunnah of Takfeen</a></li>
-        <li><a href="#masjid" onclick="toggleMobileDrawer()">Masjid Partnerships</a></li>
         <li><a href="#testimonials" onclick="toggleMobileDrawer()">Testimonials</a></li>
-        <li><a href="#sample-request" onclick="toggleMobileDrawer()">Request Free Sample</a></li>
+        <li><a href="#sample-request" onclick="toggleMobileDrawer()">Contact &amp; Orders</a></li>
         <li><a href="#faq" onclick="toggleMobileDrawer()">Frequently Asked Questions</a></li>
       </ul>
-      <a href="#sample-request" class="btn btn-primary" onclick="toggleMobileDrawer()">Request Masjid Sample</a>
+      <a href="#sample-request" class="btn btn-primary" onclick="toggleMobileDrawer()">Order Kaffan Set</a>
     </div>
   </div>
 
@@ -1401,7 +1364,7 @@
       <div class="hero-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
       <h1>Dignified Kaffan for Every Departed Soul</h1>
       <p class="hero-subtitle">
-        Pre-cut, 100% white cotton burial garments crafted for community readiness. Available in individual complete sets ($25) and bulk wholesale cartons with rapid dispatch across the USA, Australia, and New Zealand.
+        Pre-cut, 100% white cotton burial garments crafted for community readiness. Available in individual complete sets ($25) with rapid dispatch across the USA, Australia, and New Zealand.
       </p>
 
       <!-- 3 Small Trust Pills -->
@@ -1422,27 +1385,27 @@
 
       <!-- Two Crisp Buttons -->
       <div class="hero-cta-group">
-        <a href="#sample-request" class="btn btn-primary">Request Masjid Sample</a>
+        <a href="#sample-request" class="btn btn-primary">Order Kaffan Set</a>
         <a href="#sizes" class="btn btn-secondary">View Sizing</a>
       </div>
 
       <div class="hero-subtext-link">
         Direct Janazah Dispatch:
-        <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies%20for%20our%20masjid" target="_blank" rel="noopener">
+        <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener">
           Chat with us on WhatsApp &rarr;
         </a>
       </div>
     </div>
   </header>
 
-  <!-- KAFFANS / OFFERINGS SECTION (ONLY SECTION WITH IMAGES) -->
+  <!-- KAFFANS / SETS SECTION (ONLY SECTION WITH IMAGES) -->
   <section id="offerings">
     <div class="container">
       <div class="section-header">
-        <div class="section-badge">Garment Offerings</div>
-        <h2 class="section-title">Kaffans &amp; Wholesale Cartons</h2>
+        <div class="section-badge">Complete Sets</div>
+        <h2 class="section-title">The Kaffan Sets</h2>
         <p class="section-desc">
-          Individual complete sets for family needs alongside wholesale master cartons for masjid reserve closets.
+          Individual complete sets prepared with reverence and precision according to authentic Sunnah.
         </p>
       </div>
 
@@ -1465,7 +1428,7 @@
               <div class="card-price-num"><span class="curr-symbol">$</span><span class="curr-val" data-base-price="25">25</span></div>
               <div class="card-price-unit">/set</div>
             </div>
-            <p class="card-shipping-text">Shipping calculated based on destination and carton volume.</p>
+            <p class="card-shipping-text">Shipping calculated based on destination and delivery speed.</p>
             <div class="card-badge">3 Sunnah Pieces + Pre-Cut Ties</div>
             <div class="card-divider"></div>
             <ul class="card-pieces-list">
@@ -1475,7 +1438,7 @@
               <li><strong>Pre-Cut Cotton Ties (Ribat)</strong> — 3–4 strips included</li>
               <li>Available in Small, Medium, Large, Extra Large</li>
             </ul>
-            <a href="#sample-request" class="btn btn-primary card-action-btn" onclick="preselectForm('Request 1 Free Sample Kit', 'Men\'s Kaffan Set')">
+            <a href="#sample-request" class="btn btn-primary card-action-btn" onclick="preselectForm('Individual Family Order', 'Men\'s Kaffan Set')">
               Order Men's Set
             </a>
           </div>
@@ -1499,7 +1462,7 @@
               <div class="card-price-num"><span class="curr-symbol">$</span><span class="curr-val" data-base-price="25">25</span></div>
               <div class="card-price-unit">/set</div>
             </div>
-            <p class="card-shipping-text">Shipping calculated based on destination and carton volume.</p>
+            <p class="card-shipping-text">Shipping calculated based on destination and delivery speed.</p>
             <div class="card-badge">5 Sunnah Pieces + Pre-Cut Ties</div>
             <div class="card-divider"></div>
             <ul class="card-pieces-list">
@@ -1510,43 +1473,8 @@
               <li><strong>Seenah-band (Chest Band)</strong> — 37″ × 60″</li>
               <li><strong>Pre-Cut Cotton Ties (Ribat)</strong> — 3–4 strips included</li>
             </ul>
-            <a href="#sample-request" class="btn btn-primary card-action-btn" onclick="preselectForm('Request 1 Free Sample Kit', 'Women\'s Kaffan Set')">
+            <a href="#sample-request" class="btn btn-primary card-action-btn" onclick="preselectForm('Individual Family Order', 'Women\'s Kaffan Set')">
               Order Women's Set
-            </a>
-          </div>
-        </article>
-
-        <!-- CARD 3: MASJID BULK CARTON -->
-        <article class="kaffan-card">
-          <div class="card-photo-wrap">
-            <img 
-              src="Unstitched.jpeg" 
-              alt="Wasim Trader Masjid Bulk Cartons" 
-              loading="lazy" 
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
-            />
-            <div class="card-photo-fallback">Masjid Bulk Carton</div>
-          </div>
-          <div class="card-content">
-            <div class="card-top-tag">Institutions &amp; Wholesalers</div>
-            <h3 class="card-title">Masjid Bulk Carton</h3>
-            <!-- Top line formatted as "Custom / Tiered" mirroring the $25 price typography -->
-            <div class="card-price-line">
-              <div class="card-price-num" style="font-size:2rem;">Custom</div>
-              <div class="card-price-unit" style="font-size:1.1rem;font-weight:600;color:var(--text-main);">/ Tiered</div>
-            </div>
-            <p class="card-shipping-text">Tiered wholesale freight quotes for masjids &amp; distributors.</p>
-            <div class="card-badge" style="background:#FEF3C7;color:#92400E;">Wholesale Rates (20, 50, 100 Sets)</div>
-            <div class="card-divider"></div>
-            <ul class="card-pieces-list">
-              <li><strong>20 Sets Starter Carton</strong> — $22 / set ($440 total)</li>
-              <li><strong>50 Sets Master Carton</strong> — $20 / set ($1,000 total)</li>
-              <li><strong>100+ Sets Institutional</strong> — $18 / set ($1,800+ total)</li>
-              <li>Custom ratio of Men's &amp; Women's sets in carton</li>
-              <li>1 Free Complete Sample Kit for verified masjids</li>
-            </ul>
-            <a href="#sample-request" class="btn btn-secondary card-action-btn" onclick="preselectForm('Request Bulk Carton Quote', 'Wholesale Cartons')">
-              Request Carton Quote
             </a>
           </div>
         </article>
@@ -1736,44 +1664,12 @@
     </div>
   </section>
 
-  <!-- INSTITUTIONAL MASJID PARTNERSHIP HUB (NO IMAGES) -->
-  <section id="masjid">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge">Institutional Support</div>
-        <h2 class="section-title">Masjid Partnership Hub</h2>
-        <p class="section-desc">
-          Equipping Islamic Centers across USA, Australia, and New Zealand to maintain prepared Janazah reserves.
-        </p>
-      </div>
-
-      <div class="masjid-pillars">
-        <div class="masjid-card">
-          <h3>Always Ready on Site</h3>
-          <p>Never scramble for fabric when a death occurs. Keep 20 to 100 sealed pre-cut kaffan sets in your masjid mortuary closet.</p>
-        </div>
-        <div class="masjid-card">
-          <h3>Wholesale Tiered Cartons</h3>
-          <p>Volume pricing from $18–$22/set allows your committee to provide garments freely to indigent families or at cost.</p>
-        </div>
-        <div class="masjid-card">
-          <h3>Community Janazah Rebate</h3>
-          <p>Masjids can receive a community rebate on sets dispensed to support local Janazah facilities and cemetery services.</p>
-        </div>
-        <div class="masjid-card">
-          <h3>Priority Emergency Line</h3>
-          <p>Direct 24/7 hotline for mosque administrators. Immediate replacement stock and expedited tracked shipping.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- HIGH-CONTRAST TESTIMONIALS (NO IMAGES) -->
   <section id="testimonials">
     <div class="container">
       <div class="section-header">
         <div class="section-badge">Community Trust</div>
-        <h2 class="section-title">What Institutions Are Saying</h2>
+        <h2 class="section-title">What Communities Are Saying</h2>
         <p class="section-desc">
           Reflecting our enduring commitment to reverence, timely delivery, and dependable pure cotton quality.
         </p>
@@ -1813,21 +1709,21 @@
     </div>
   </section>
 
-  <!-- STREAMLINED SAMPLE REQUEST & CONTACT SECTION -->
+  <!-- STREAMLINED ORDERS & CONTACT SECTION -->
   <section id="sample-request">
     <div class="container">
       <div class="contact-layout">
         <div class="contact-sidebar">
           <div>
-            <div class="section-badge">Verified Institutional Access</div>
-            <h3>Request a Free Masjid Sample Kit</h3>
+            <div class="section-badge">Direct Orders &amp; Support</div>
+            <h3>Order or Inquire with Care</h3>
             <p>
-              We supply a complimentary, complete sample kaffan set to verified Mosque Imams, Board Members, and Janazah Funeral Committees in the USA, Australia, and New Zealand.
+              Whether ordering for an immediate bereavement or checking delivery times for your local community, we assist you with patience, discretion, and reverence.
             </p>
           </div>
 
           <!-- Direct WhatsApp Channel -->
-          <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies%20for%20our%20masjid" target="_blank" rel="noopener" class="direct-contact-channel">
+          <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener" class="direct-contact-channel">
             <div class="channel-icon" style="background:#ECFDF5;color:#15803D;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -1859,8 +1755,8 @@
           <form id="sampleForm" onsubmit="handleSampleSubmit(event)">
             <div class="form-grid-2">
               <div class="form-field">
-                <label for="contactName">Name / Masjid Name</label>
-                <input type="text" id="contactName" placeholder="e.g. Masjid Al-Noor" required autocomplete="organization" />
+                <label for="contactName">Name / Community Name</label>
+                <input type="text" id="contactName" placeholder="e.g. Brother Ahmad" required autocomplete="name" />
               </div>
               <div class="form-field">
                 <label for="contactEmail">Email Address</label>
@@ -1876,10 +1772,10 @@
               <div class="form-field">
                 <label for="contactType">Request Type</label>
                 <select id="contactType">
-                  <option value="Request 1 Free Sample Kit">Request 1 Free Sample Kit</option>
-                  <option value="Request Bulk Carton Quote">Request Bulk Carton Quote (20 / 50 / 100 sets)</option>
-                  <option value="Distributor Partnership">Distributor Partnership</option>
                   <option value="Individual Family Order">Individual Family Order</option>
+                  <option value="Bulk Order Inquiry">Bulk Order Inquiry</option>
+                  <option value="Request 1 Free Sample Kit">Request 1 Free Sample Kit</option>
+                  <option value="General Question">General Question</option>
                 </select>
               </div>
             </div>
@@ -1890,7 +1786,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary" style="width:100%;">
-              Request Sample Kit
+              Send Inquiry / Order
             </button>
           </form>
         </div>
@@ -1905,23 +1801,11 @@
         <div class="section-badge">Common Questions</div>
         <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
         <p class="section-desc">
-          Clear, sincere answers regarding Sunnah compliance, wholesale carton logistics, and sample kits.
+          Clear, sincere answers regarding Sunnah compliance, shipping, and sizing.
         </p>
       </div>
 
       <div class="faq-stack">
-        <details class="faq-item" name="faq-set">
-          <summary>
-            How does the Free Masjid Sample Kit work?
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </summary>
-          <div class="faq-body">
-            We provide verified Mosque Imams, Board Members, and Janazah Funeral Coordinators in the USA, Australia, and New Zealand with a complimentary, complete sample kit. Simply submit the form above with your organization details. Our team verifies the masjid information and dispatches the sample for your committee to inspect the fabric and pre-cut dimensions firsthand.
-          </div>
-        </details>
-
         <details class="faq-item" name="faq-set">
           <summary>
             Are Wasim Trader Kaffans 100% compliant with Islamic Sunnah?
@@ -1936,13 +1820,13 @@
 
         <details class="faq-item" name="faq-set">
           <summary>
-            How are wholesale cartons packaged and shipped?
+            How fast can you dispatch in an emergency Janazah situation?
             <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </summary>
           <div class="faq-body">
-            Wholesale cartons are packed in heavy-duty, moisture-sealed master boxes containing 20, 50, or 100 individually sealed sets. You can customize the ratio of Men's vs. Women's sets. Shipping is calculated based on destination and carton volume with tracked express freight directly to your masjid.
+            We understand that Islamic burials must take place as swiftly as possible. For emergency requests, contact our dedicated WhatsApp line immediately. We offer expedited tracked courier dispatch for urgent family needs across USA, Australia, and New Zealand.
           </div>
         </details>
 
@@ -1957,6 +1841,18 @@
             Every set includes 3 to 4 pre-cut pure cotton tie strips (60″ × 2″ each). Volunteers use them to fasten the shroud at the head, midsection, and feet during Janazah transit. They are untied or loosened upon placement in the Qabr (grave) according to Sunnah.
           </div>
         </details>
+
+        <details class="faq-item" name="faq-set">
+          <summary>
+            Can donors purchase sets as Sadaqah Jariyah for their community?
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-body">
+            Yes, many community members purchase batches of sets to donate directly to their local community or funeral volunteers as continuous ongoing charity (*Sadaqah Jariyah*). We can deliver the shipment directly to your nominated destination.
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -1968,7 +1864,7 @@
         <div>
           <div class="footer-logo">Wasim Trader <span>Kaffans</span></div>
           <p class="footer-desc">
-            Reliable, 100% Sunnah-compliant Islamic burial garments and wholesale carton supplies for masjids, funeral committees, and distributors across USA, Australia, and New Zealand.
+            Reliable, 100% Sunnah-compliant Islamic burial garments for Muslim families and communities across USA, Australia, and New Zealand.
           </p>
           <div class="footer-ayah">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
           <div class="footer-ayah-trans">"Indeed, to Allah we belong, and to Him we shall return."</div>
@@ -1980,17 +1876,16 @@
             <li><a href="#offerings">Kaffans &amp; Pricing</a></li>
             <li><a href="#sizes">Sizing Matrix</a></li>
             <li><a href="#sunnah">The Sunnah of Takfeen</a></li>
-            <li><a href="#masjid">Masjid Partnerships</a></li>
             <li><a href="#testimonials">Community Testimonials</a></li>
-            <li><a href="#sample-request">Request Free Sample</a></li>
+            <li><a href="#sample-request">Contact &amp; Orders</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Institutional Contact</h4>
+          <h4>Contact &amp; Support</h4>
           <ul class="footer-links">
             <li><a href="mailto:iwasimtrader@gmail.com">iwasimtrader@gmail.com</a></li>
-            <li><a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies%20for%20our%20masjid" target="_blank" rel="noopener">WhatsApp Direct Line</a></li>
+            <li><a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener">WhatsApp Direct Line</a></li>
             <li><span style="color:#6B7280;">Serving USA · Australia · New Zealand</span></li>
           </ul>
         </div>
@@ -2005,7 +1900,7 @@
 
   <!-- FLOATING WHATSAPP -->
   <div class="floating-action">
-    <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies%20for%20our%20masjid" target="_blank" rel="noopener" class="float-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener" class="float-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
       <svg viewBox="0 0 24 24">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
@@ -2113,7 +2008,7 @@
 
       const subject = encodeURIComponent(`${type}: ${name}`);
       const body = encodeURIComponent(
-        `Name / Masjid: ${name}\nEmail: ${email}\nWhatsApp Number: ${phone}\nRequest Type: ${type}\n\nMessage:\n${msg}`
+        `Name: ${name}\nEmail: ${email}\nWhatsApp Number: ${phone}\nRequest Type: ${type}\n\nMessage:\n${msg}`
       );
 
       showToast("Opening email client to send request...");

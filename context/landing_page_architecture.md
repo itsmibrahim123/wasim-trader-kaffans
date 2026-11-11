@@ -1,99 +1,73 @@
-# Landing Page Architecture & Frontend Design System (B2B Optimized)
+# Landing Page Architecture & Frontend Design System (Minimal & High-Contrast)
 
 ## 1. Information Architecture & Section Hierarchy
 
-The landing page (`index.html`) is architected specifically for high-conversion B2B and institutional cold outreach (targeting Mosque Imams, Shura Boards, Funeral Committees, and Distributors across the USA, Australia, and New Zealand):
+The landing page (`index.html`) is architected with a slick, minimal, and high-contrast aesthetic. It strictly adheres to the core image placement rule: **all product photography is confined exclusively to the `#offerings` Kaffans section**. Zero images appear in the Hero, Sizing Tables, Testimonials, or Footer.
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│ 1. Sticky Navigation Bar                                │
+│ 1. Sticky Navigation Bar (Solid / High-Blur Backdrop)  │
 │    - Brand Logo ("Wasim Trader Kaffans")                │
-│    - Navigation Links (Offerings, Fabric, Sizing,       │
-│      Packaging, Sunnah Guide, Masjid Hub, Samples, FAQ) │
+│    - Navigation Links (Kaffan Sets, Sizing, Sunnah,     │
+│      Testimonials, Order / Sample, FAQ)                │
 │    - Currency Selector (USD $, AUD A$, NZD NZ$, GBP £)  │
-│    - Primary Action ("Request Sample Kit")              │
+│    - Action Button ("Order Kaffan Set")                 │
 ├────────────────────────────────────────────────────────┤
-│ 2. Hero Section (Overhauled B2B Conversion Engine)     │
-│    - Left Column:                                      │
-│      • Bismillah & Islamic Framing                     │
-│      • Headline: "Reliable, Sunnah-Compliant Kaffan     │
-│        Supplies for Masjids & Funeral Committees"       │
-│      • Subheadline: Pre-cut, 100% white cotton burial   │
-│        garments crafted for community readiness...     │
-│      • 3 Trust Pills:                                   │
-│        1. "100% Pure White Cotton"                      │
-│        2. "Sunnah-Compliant Pre-Cut Dimensions"         │
-│        3. "Ready-to-Use Protective Packaging"           │
-│      • Primary CTA: "Request a Free Masjid Sample Kit"  │
-│      • Secondary CTA: "View Wholesale Pricing & Sizing" │
-│    - Right Column:                                     │
-│      • Prominent Product Showcase (`KaffanImage.jpeg`)  │
-│      • Floating Badge: "$25 Flat Individual / Wholesale │
-│        Cartons Available"                              │
+│ 2. Hero Section (Minimalist, Centered, High-Contrast)  │
+│    - Deep charcoal headline (#111827) on warm cream    │
+│    - Subheadline explaining pre-cut 100% cotton sets   │
+│    - 3 Trust Pills with clean CSS emerald dots:         │
+│      • 100% Pure White Cotton                          │
+│      • Sunnah-Compliant Pre-Cut Dimensions             │
+│      • Ready-to-Use Protective Packaging               │
+│    - Dual CTAs: "Order Kaffan Set" & "View Sizing"     │
+│    - ZERO IMAGES in Hero                               │
 ├────────────────────────────────────────────────────────┤
 │ 3. Sacred Trust Badges Strip                           │
 │    - 100% Sunnah Compliant (3-pc Men / 5-pc Women)     │
 │    - Pre-Cut & Ready (Zero Cutting Hassle in Grief)     │
 │    - 100% Pure White Cotton (Opaque & Breathable)      │
-│    - Direct Dispatch to USA, Australia & New Zealand   │
+│    - Rapid Dispatch to USA, Australia & New Zealand    │
 ├────────────────────────────────────────────────────────┤
-│ 4. Product Offerings & Tiered Wholesale Cards          │
-│    - Men's Set ($25): `Kaffan3piece.jpeg`              │
+│ 4. Kaffan Sets / Offerings (THE ONLY IMAGE SECTION)     │
+│    - Centered 2-Card Balanced Grid (max-width: 920px)  │
+│    - Men's Set Card ($25 /set):                        │
+│      • Photo wrap: aspect-ratio 1:1, object-fit: contain│
+│      • Photo: `Kaffan3piece.jpeg`                      │
 │      • 3 pieces + pre-cut tie ribbons                  │
-│    - Women's Set ($25): `TiedKaffan.jpeg`              │
+│    - Women's Set Card ($25 /set):                      │
+│      • Photo wrap: aspect-ratio 1:1, object-fit: contain│
+│      • Photo: `TiedKaffan.jpeg`                        │
 │      • 5 pieces + pre-cut tie ribbons                  │
-│    - Masjid Bulk Cartons ("Wholesale Tiered Rates"):   │
-│      • Photo: `Unstitched.jpeg`                        │
-│      • Tiers: 20 sets ($22/ea), 50 sets ($20/ea),      │
-│        100 sets ($18/ea)                               │
-│      • Copy: "Shipping calculated based on destination  │
-│        and carton volume."                             │
+│    - Identical card heights & aligned action buttons   │
 ├────────────────────────────────────────────────────────┤
-│ 5. Fabric & Quality Showcase (Texture & Opacity)       │
-│    - Visuals: `macroTexture.jpeg` & `Unstitched.jpeg`   │
-│    - Close-ups of weave density, non-transparency,     │
-│      and pre-cut neat hems                             │
-├────────────────────────────────────────────────────────┤
-│ 6. Packaging & Dignity Section (Cleanliness & Ties)    │
-│    - Visuals: `KaffanImage.jpeg` & `TiedKaffan.jpeg`   │
-│    - Dust-proof sealed packaging ready for storage     │
-│    - Pre-cut tie ribbons (Ribat) included              │
-├────────────────────────────────────────────────────────┤
-│ 7. Audited Sizing Matrix & Anatomy Breakdown           │
+│ 5. Audited Sizing Matrix                               │
 │    - Men's Sizing Table (S: 100", M: 108", L: 116",    │
 │      XL: 126" — logically scaling)                     │
 │    - Women's Sizing Table (Universal Generous Fit)     │
-│    - Visual diagrams: `KaffansMan.png` &               │
-│      `KaffanLadies.png` beside tables                  │
+│    - Ample cell padding (1.1rem 1.4rem)                │
 │    - Units Toggle: Inches (in) / Centimeters (cm)      │
+│    - ZERO IMAGES in Sizing                             │
 ├────────────────────────────────────────────────────────┤
-│ 8. The Sunnah of Takfeen (4-Step Theological Guide)   │
+│ 6. The Sunnah of Takfeen (4-Step Theological Guide)   │
 │    - Step 1: Preparation & Perfuming (Ithr / Camphor)  │
 │    - Step 2: Laying Out the Layers                     │
 │    - Step 3: Sequential Wrapping & Awrah Modesty       │
 │    - Step 4: Fastening with Cotton Tie Ribbons         │
 ├────────────────────────────────────────────────────────┤
-│ 9. Institutional Masjid Partnership Hub                │
-│    - Consignment & on-site reserve storage models      │
-│    - Community fund rebate/commission program          │
-│    - Emergency hotline for funeral directors           │
+│ 7. Testimonials (High-Contrast Quotes & Communities)   │
+│    - High-contrast charcoal community names (#111827)  │
+│    - Authentic endorsements (Auckland, LA, Melbourne)  │
 ├────────────────────────────────────────────────────────┤
-│ 10. Live Quantity & Cost Estimator                     │
-│     - Interactive selector with carton pricing logic   │
-│     - Destination country dropdown                     │
-│     - 1-click WhatsApp & Email dispatch                │
+│ 8. Order & Sample Request Form (`#sample-request`)     │
+│    - Fields: Full Name / Organization, Email,          │
+│      WhatsApp Number, Order Type / Needs               │
+│    - Direct WhatsApp dispatch (`wa.me/?text=...`)      │
+│    - Direct email link: `iwasimtrader@gmail.com`       │
 ├────────────────────────────────────────────────────────┤
-│ 11. Institutional Sample Request Form (`#sample-request`)│
-│     - Fields: Masjid Name, Contact & Role, Email,      │
-│       Phone/WhatsApp, Shipping City/State/Country      │
-│     - Dropdown: [1 Free Sample Kit, Bulk Carton Quote, │
-│       Distributor Partnership]                         │
-│     - Button: "Request Sample Kit"                     │
-├────────────────────────────────────────────────────────┤
-│ 12. Testimonials, FAQ Accordion & Footer               │
-│     - Institutional endorsements (Auckland, LA, Melb)  │
-│     - Semantic `<details>` FAQ accordion               │
-│     - Direct WhatsApp (`wa.me/?text=...`) & Email bar  │
+│ 9. Semantic FAQ Accordion & Minimalist Footer          │
+│    - Native `<details>` expandable items               │
+│    - Clean high-contrast footer with direct links      │
 └────────────────────────────────────────────────────────┘
 ```
 
