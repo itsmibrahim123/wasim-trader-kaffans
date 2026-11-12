@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wasim Trader Kaffans — Sunnah-Compliant Islamic Burial Garments</title>
-  <meta name="description" content="Pre-cut, 100% white cotton burial garments crafted for community readiness. Complete sets ($25) with rapid dispatch across the USA, Australia, and New Zealand." />
+  <meta name="description"
+    content="Pre-cut, 100% white cotton burial garments crafted for community readiness. Complete sets ($25) with rapid dispatch across the USA, Australia, and New Zealand." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Wasim Trader Kaffans — Islamic Burial Garments" />
-  <meta property="og:description" content="100% Sunnah-compliant, pre-cut pure white cotton Kaffan sets for men ($25) and women ($25). Rapid dispatch to USA, Australia &amp; NZ." />
+  <meta property="og:description"
+    content="100% Sunnah-compliant, pre-cut pure white cotton Kaffan sets for men ($25) and women ($25). Rapid dispatch to USA, Australia &amp; NZ." />
   <meta property="og:image" content="KaffanImage.jpeg" />
   <meta property="og:type" content="website" />
 
   <!-- Google Fonts: Cormorant Garamond, Tajawal, Amiri -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Tajawal:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ──────────────────────────────────────────────────────────
        CSS RESET & SLICK HIGH-CONTRAST DESIGN TOKENS
        ────────────────────────────────────────────────────────── */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -29,38 +36,42 @@
 
     :root {
       /* Backgrounds */
-      --bg-cream:       #FBF9F5;
-      --bg-cream-alt:   #F5F0E6;
-      --bg-white:       #FFFFFF;
-      --bg-card:        #FFFFFF;
+      --bg-cream: #FBF9F5;
+      --bg-cream-alt: #F5F0E6;
+      --bg-white: #FFFFFF;
+      --bg-card: #FFFFFF;
 
       /* High-Contrast Typography */
-      --text-main:      #111827; /* Deep charcoal/black */
-      --text-body:      #374151; /* High-contrast readable gray */
-      --text-muted:     #6B7280; /* Neutral muted text */
-      --text-light:     #9CA3AF;
+      --text-main: #111827;
+      /* Deep charcoal/black */
+      --text-body: #374151;
+      /* High-contrast readable gray */
+      --text-muted: #6B7280;
+      /* Neutral muted text */
+      --text-light: #9CA3AF;
 
       /* Subtle Gold Accents & Badges ONLY (No primary text in gold) */
-      --gold-accent:    #996515; /* Warm muted gold */
-      --gold-bg:        rgba(153, 101, 21, 0.08);
-      --gold-border:    rgba(153, 101, 21, 0.28);
-      
+      --gold-accent: #996515;
+      /* Warm muted gold */
+      --gold-bg: rgba(153, 101, 21, 0.08);
+      --gold-border: rgba(153, 101, 21, 0.28);
+
       /* Borders & Shadows */
       --border-neutral: #E5E7EB;
-      --border-light:   #F3F4F6;
-      --shadow-sm:      0 1px 3px rgba(0, 0, 0, 0.05);
-      --shadow-md:      0 4px 14px rgba(0, 0, 0, 0.06);
-      --shadow-lg:      0 12px 30px rgba(0, 0, 0, 0.08);
+      --border-light: #F3F4F6;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.08);
 
       /* Accents */
-      --emerald:        #059669;
-      --emerald-bg:     #ECFDF5;
+      --emerald: #059669;
+      --emerald-bg: #ECFDF5;
 
       /* Fonts */
-      --font-serif:     'Cormorant Garamond', Georgia, serif;
-      --font-sans:      'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-arabic:    'Amiri', serif;
-      --transition:     all 0.22s ease;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-arabic: 'Amiri', serif;
+      --transition: all 0.22s ease;
     }
 
     html {
@@ -90,7 +101,10 @@
     }
 
     /* Headings */
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       font-family: var(--font-serif);
       color: var(--text-main);
       font-weight: 600;
@@ -165,6 +179,7 @@
       border-color: var(--text-main);
       box-shadow: 0 2px 8px rgba(17, 24, 39, 0.15);
     }
+
     .btn-primary:hover {
       background: #000000;
       transform: translateY(-1px);
@@ -177,6 +192,7 @@
       border-color: var(--border-neutral);
       box-shadow: var(--shadow-sm);
     }
+
     .btn-secondary:hover {
       border-color: var(--gold-accent);
       color: var(--gold-accent);
@@ -188,6 +204,7 @@
       color: #FFFFFF;
       border-color: #15803D;
     }
+
     .btn-whatsapp:hover {
       background: #166534;
       color: #FFFFFF;
@@ -216,14 +233,17 @@
       gap: 1.5rem;
       flex-wrap: wrap;
     }
+
     .top-bar strong {
       color: #FFFFFF;
     }
+
     .top-bar a {
       color: #FBBF24;
       text-decoration: none;
       font-weight: 600;
     }
+
     .top-bar a:hover {
       text-decoration: underline;
     }
@@ -256,6 +276,7 @@
       text-decoration: none;
       color: var(--text-main);
     }
+
     .nav-logo-icon {
       width: 34px;
       height: 34px;
@@ -269,6 +290,7 @@
       font-size: 1.25rem;
       line-height: 1;
     }
+
     .nav-logo-text {
       font-family: var(--font-serif);
       font-size: 1.35rem;
@@ -276,6 +298,7 @@
       letter-spacing: 0.02em;
       color: var(--text-main);
     }
+
     .nav-logo-text span {
       font-weight: 400;
       font-style: italic;
@@ -288,6 +311,7 @@
       gap: 1.75rem;
       list-style: none;
     }
+
     .nav-links a {
       font-size: 0.8rem;
       letter-spacing: 0.08em;
@@ -297,6 +321,7 @@
       font-weight: 600;
       transition: color 0.15s ease;
     }
+
     .nav-links a:hover {
       color: var(--gold-accent);
     }
@@ -318,6 +343,7 @@
       color: var(--text-main);
       font-weight: 600;
     }
+
     .currency-selector select {
       background: transparent;
       border: none;
@@ -352,10 +378,12 @@
       pointer-events: none;
       transition: opacity 0.25s ease;
     }
+
     .mobile-drawer.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .drawer-panel {
       position: absolute;
       top: 0;
@@ -370,11 +398,13 @@
       gap: 1.5rem;
       transform: translateX(100%);
       transition: transform 0.25s ease;
-      box-shadow: -10px 0 25px rgba(0,0,0,0.15);
+      box-shadow: -10px 0 25px rgba(0, 0, 0, 0.15);
     }
+
     .mobile-drawer.active .drawer-panel {
       transform: translateX(0);
     }
+
     .drawer-close {
       align-self: flex-end;
       background: none;
@@ -383,12 +413,14 @@
       cursor: pointer;
       color: var(--text-main);
     }
+
     .drawer-links {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
+
     .drawer-links a {
       font-size: 0.95rem;
       text-transform: uppercase;
@@ -427,14 +459,16 @@
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 3.8rem);
       line-height: 1.12;
-      color: #111827; /* Deep charcoal/black */
+      color: #111827;
+      /* Deep charcoal/black */
       margin-bottom: 1.25rem;
       letter-spacing: -0.015em;
     }
 
     .hero-subtitle {
       font-size: 1.15rem;
-      color: #374151; /* High contrast body */
+      color: #374151;
+      /* High contrast body */
       line-height: 1.75;
       margin-bottom: 2rem;
       max-width: 660px;
@@ -450,6 +484,7 @@
       gap: 0.65rem;
       margin-bottom: 2.25rem;
     }
+
     .trust-pill {
       display: inline-flex;
       align-items: center;
@@ -463,11 +498,13 @@
       font-weight: 600;
       box-shadow: var(--shadow-sm);
     }
+
     .trust-pill-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #059669; /* Emerald dot */
+      background: #059669;
+      /* Emerald dot */
     }
 
     .hero-cta-group {
@@ -483,6 +520,7 @@
       font-size: 0.85rem;
       color: var(--text-muted);
     }
+
     .hero-subtext-link a {
       color: #111827;
       font-weight: 600;
@@ -505,7 +543,8 @@
       max-width: 920px;
       margin: 0 auto;
       gap: 2.25rem;
-      align-items: stretch; /* Identical card heights */
+      align-items: stretch;
+      /* Identical card heights */
     }
 
     .kaffan-card {
@@ -519,6 +558,7 @@
       height: 100%;
       transition: var(--transition);
     }
+
     .kaffan-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
@@ -539,6 +579,7 @@
       justify-content: center;
       padding: 0.5rem;
     }
+
     .card-photo-wrap img {
       width: 100%;
       height: 100%;
@@ -546,6 +587,7 @@
       display: block;
       transition: transform 0.3s ease;
     }
+
     .kaffan-card:hover .card-photo-wrap img {
       transform: scale(1.02);
     }
@@ -570,7 +612,8 @@
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
-      flex-grow: 1; /* Ensures bottom actions align */
+      flex-grow: 1;
+      /* Ensures bottom actions align */
     }
 
     .card-top-tag {
@@ -595,6 +638,7 @@
       gap: 0.4rem;
       margin-bottom: 0.5rem;
     }
+
     .card-price-num {
       font-family: var(--font-serif);
       font-size: 2.4rem;
@@ -602,6 +646,7 @@
       color: var(--text-main);
       line-height: 1;
     }
+
     .card-price-unit {
       font-size: 0.95rem;
       color: var(--text-muted);
@@ -639,8 +684,10 @@
       flex-direction: column;
       gap: 0.65rem;
       margin-bottom: 2rem;
-      flex-grow: 1; /* Pushes button to bottom */
+      flex-grow: 1;
+      /* Pushes button to bottom */
     }
+
     .card-pieces-list li {
       font-size: 0.9rem;
       color: var(--text-body);
@@ -649,6 +696,7 @@
       gap: 0.55rem;
       line-height: 1.45;
     }
+
     .card-pieces-list li::before {
       content: '';
       width: 5px;
@@ -660,7 +708,8 @@
     }
 
     .card-action-btn {
-      margin-top: auto; /* Bottom aligned across both cards */
+      margin-top: auto;
+      /* Bottom aligned across both cards */
       width: 100%;
     }
 
@@ -687,6 +736,7 @@
       display: flex;
       gap: 0.5rem;
     }
+
     .tab-trigger {
       padding: 0.75rem 1.5rem;
       background: none;
@@ -702,6 +752,7 @@
       margin-bottom: -1px;
       transition: var(--transition);
     }
+
     .tab-trigger.active {
       color: var(--text-main);
       border-bottom-color: var(--text-main);
@@ -716,6 +767,7 @@
       padding: 0.2rem;
       gap: 0.2rem;
     }
+
     .unit-switch-btn {
       background: none;
       border: none;
@@ -727,6 +779,7 @@
       color: var(--text-muted);
       transition: var(--transition);
     }
+
     .unit-switch-btn.active {
       background: #111827;
       color: #FFFFFF;
@@ -735,6 +788,7 @@
     .tab-content-panel {
       display: none;
     }
+
     .tab-content-panel.active {
       display: block;
     }
@@ -753,6 +807,7 @@
       font-size: 0.92rem;
       text-align: left;
     }
+
     .sizing-table th {
       background: #F9FAFB;
       padding: 1.1rem 1.4rem;
@@ -763,15 +818,18 @@
       font-weight: 600;
       border-bottom: 1px solid var(--border-neutral);
     }
+
     .sizing-table td {
       padding: 1.1rem 1.4rem;
       color: var(--text-body);
       border-bottom: 1px solid var(--border-neutral);
       vertical-align: middle;
     }
+
     .sizing-table tr:last-child td {
       border-bottom: none;
     }
+
     .sizing-table tr:hover td {
       background: #FAFAFA;
     }
@@ -818,6 +876,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
+
     .sunnah-step {
       background: var(--bg-white);
       border: 1px solid var(--border-neutral);
@@ -825,6 +884,7 @@
       padding: 1.85rem;
       box-shadow: var(--shadow-sm);
     }
+
     .step-number {
       font-family: var(--font-serif);
       font-size: 2rem;
@@ -833,11 +893,13 @@
       margin-bottom: 0.75rem;
       font-weight: 700;
     }
+
     .sunnah-step h3 {
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
       color: var(--text-main);
     }
+
     .sunnah-step p {
       font-size: 0.88rem;
       color: var(--text-muted);
@@ -872,7 +934,8 @@
 
     .testimonial-quote {
       font-size: 0.96rem;
-      color: #374151; /* Lightened, crisp high contrast */
+      color: #374151;
+      /* Lightened, crisp high contrast */
       line-height: 1.75;
       font-style: italic;
       margin-bottom: 1.75rem;
@@ -882,13 +945,16 @@
       border-top: 1px solid var(--border-neutral);
       padding-top: 1.25rem;
     }
+
     .testimonial-org {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #111827; /* High contrast against white card */
+      color: #111827;
+      /* High contrast against white card */
       margin-bottom: 0.15rem;
       font-family: var(--font-serif);
     }
+
     .testimonial-location {
       font-size: 0.78rem;
       color: var(--text-muted);
@@ -918,10 +984,12 @@
       flex-direction: column;
       gap: 1.5rem;
     }
+
     .contact-sidebar h3 {
       font-size: 1.85rem;
       margin-bottom: 0.5rem;
     }
+
     .contact-sidebar p {
       color: var(--text-muted);
       line-height: 1.7;
@@ -940,10 +1008,12 @@
       gap: 1rem;
       transition: var(--transition);
     }
+
     .direct-contact-channel:hover {
       border-color: #D1D5DB;
       box-shadow: var(--shadow-sm);
     }
+
     .channel-icon {
       width: 42px;
       height: 42px;
@@ -955,11 +1025,13 @@
       justify-content: center;
       flex-shrink: 0;
     }
+
     .channel-info h4 {
       font-size: 0.95rem;
       color: #111827;
       margin-bottom: 0.1rem;
     }
+
     .channel-info span {
       font-size: 0.82rem;
       color: var(--text-muted);
@@ -986,6 +1058,7 @@
       gap: 0.4rem;
       margin-bottom: 1.25rem;
     }
+
     .form-field label {
       font-size: 0.76rem;
       font-weight: 700;
@@ -993,6 +1066,7 @@
       text-transform: uppercase;
       color: #111827;
     }
+
     .form-field input,
     .form-field select,
     .form-field textarea {
@@ -1007,12 +1081,14 @@
       transition: border-color 0.15s ease, background-color 0.15s ease;
       width: 100%;
     }
+
     .form-field input:focus,
     .form-field select:focus,
     .form-field textarea:focus {
       border-color: #111827;
       background: #FFFFFF;
     }
+
     .form-field textarea {
       resize: vertical;
       min-height: 100px;
@@ -1042,6 +1118,7 @@
       overflow: hidden;
       transition: var(--transition);
     }
+
     details.faq-item[open] {
       border-color: #D1D5DB;
       box-shadow: var(--shadow-sm);
@@ -1060,6 +1137,7 @@
       align-items: center;
       user-select: none;
     }
+
     details.faq-item summary::-webkit-details-marker {
       display: none;
     }
@@ -1070,6 +1148,7 @@
       color: var(--text-muted);
       transition: transform 0.25s ease;
     }
+
     details.faq-item[open] .faq-toggle-icon {
       transform: rotate(180deg);
     }
@@ -1106,6 +1185,7 @@
       color: #FFFFFF;
       margin-bottom: 0.5rem;
     }
+
     .footer-logo span {
       color: #FBBF24;
       font-style: italic;
@@ -1134,12 +1214,14 @@
       flex-direction: column;
       gap: 0.75rem;
     }
+
     .footer-links a {
       color: #9CA3AF;
       text-decoration: none;
       font-size: 0.88rem;
       transition: color 0.15s ease;
     }
+
     .footer-links a:hover {
       color: #FFFFFF;
     }
@@ -1151,6 +1233,7 @@
       margin-bottom: 0.35rem;
       direction: rtl;
     }
+
     .footer-ayah-trans {
       font-family: var(--font-serif);
       font-style: italic;
@@ -1179,6 +1262,7 @@
       right: 2rem;
       z-index: 999;
     }
+
     .float-btn {
       width: 52px;
       height: 52px;
@@ -1186,7 +1270,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       text-decoration: none;
       background: #15803D;
@@ -1194,9 +1278,11 @@
       transition: var(--transition);
       border: 2px solid #FFFFFF;
     }
+
     .float-btn:hover {
       transform: scale(1.08);
     }
+
     .float-btn svg {
       width: 26px;
       height: 26px;
@@ -1211,6 +1297,7 @@
       z-index: 10000;
       pointer-events: none;
     }
+
     .toast {
       background: #111827;
       color: #F9FAFB;
@@ -1219,12 +1306,13 @@
       border-radius: 999px;
       font-size: 0.84rem;
       font-weight: 500;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateY(20px);
       transition: var(--transition);
       pointer-events: auto;
     }
+
     .toast.show {
       opacity: 1;
       transform: translateY(0);
@@ -1237,25 +1325,31 @@
       .sunnah-grid {
         grid-template-columns: 1fr 1fr;
       }
+
       .testimonials-grid {
         grid-template-columns: 1fr;
         max-width: 540px;
         margin: 0 auto;
       }
+
       .contact-layout {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
+
       .nav-links {
         display: none;
       }
+
       .mobile-menu-btn {
         display: block;
       }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
+
       .hero {
         padding: 4.5rem 0 3.5rem;
       }
@@ -1269,19 +1363,24 @@
     }
 
     @media (max-width: 640px) {
+
       .form-grid-2,
       .sunnah-grid {
         grid-template-columns: 1fr;
       }
+
       .hero h1 {
         font-size: 2.25rem;
       }
+
       .top-bar {
         display: none;
       }
+
       .form-container {
         padding: 1.5rem 1.25rem;
       }
+
       .floating-action {
         bottom: 1.25rem;
         right: 1.25rem;
@@ -1289,6 +1388,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- TOP ANNOUNCEMENT BAR -->
@@ -1327,8 +1427,10 @@
         </div>
 
         <a href="#sample-request" class="btn btn-primary btn-sm">Order Set</a>
-        <button type="button" class="mobile-menu-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation Menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileDrawer()"
+          aria-label="Toggle Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" x2="20" y1="12" y2="12"></line>
             <line x1="4" x2="20" y1="6" y2="6"></line>
             <line x1="4" x2="20" y1="18" y2="18"></line>
@@ -1364,7 +1466,8 @@
       <div class="hero-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
       <h1>Dignified Kaffan for Every Departed Soul</h1>
       <p class="hero-subtitle">
-        Pre-cut, 100% white cotton burial garments crafted for community readiness. Available in individual complete sets ($25) with rapid dispatch across the USA, Australia, and New Zealand.
+        Pre-cut, 100% white cotton burial garments crafted for community readiness. Available in individual complete
+        sets ($25) with rapid dispatch across the USA, Australia, and New Zealand.
       </p>
 
       <!-- 3 Small Trust Pills -->
@@ -1391,7 +1494,8 @@
 
       <div class="hero-subtext-link">
         Direct Janazah Dispatch:
-        <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener">
+        <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies"
+          target="_blank" rel="noopener">
           Chat with us on WhatsApp &rarr;
         </a>
       </div>
@@ -1413,19 +1517,16 @@
         <!-- CARD 1: MEN'S KAFFAN SET -->
         <article class="kaffan-card">
           <div class="card-photo-wrap">
-            <img 
-              src="Kaffan3piece.jpeg" 
-              alt="Wasim Trader Men's Kaffan 3 Piece Set" 
-              loading="lazy" 
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
-            />
+            <img src="Kaffan3piece.jpeg" alt="Wasim Trader Men's Kaffan 3 Piece Set" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="card-photo-fallback">Men's Kaffan Set</div>
           </div>
           <div class="card-content">
             <div class="card-top-tag">For Him · Complete Set</div>
             <h3 class="card-title">Men's Kaffan Set</h3>
             <div class="card-price-line">
-              <div class="card-price-num"><span class="curr-symbol">$</span><span class="curr-val" data-base-price="25">25</span></div>
+              <div class="card-price-num"><span class="curr-symbol">$</span><span class="curr-val"
+                  data-base-price="25">25</span></div>
               <div class="card-price-unit">/set</div>
             </div>
             <p class="card-shipping-text">Shipping calculated based on destination and delivery speed.</p>
@@ -1438,7 +1539,8 @@
               <li><strong>Pre-Cut Cotton Ties (Ribat)</strong> — 3–4 strips included</li>
               <li>Available in Small, Medium, Large, Extra Large</li>
             </ul>
-            <a href="#sample-request" class="btn btn-primary card-action-btn" onclick="preselectForm('Individual Family Order', 'Men\'s Kaffan Set')">
+            <a href="#sample-request" class="btn btn-primary card-action-btn"
+              onclick="preselectForm('Individual Family Order', 'Men\'s Kaffan Set')">
               Order Men's Set
             </a>
           </div>
@@ -1447,19 +1549,16 @@
         <!-- CARD 2: WOMEN'S KAFFAN SET -->
         <article class="kaffan-card">
           <div class="card-photo-wrap">
-            <img 
-              src="TiedKaffan.jpeg" 
-              alt="Wasim Trader Women's Kaffan Set presentation" 
-              loading="lazy" 
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
-            />
+            <img src="TiedKaffan.jpeg" alt="Wasim Trader Women's Kaffan Set presentation" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="card-photo-fallback">Women's Kaffan Set</div>
           </div>
           <div class="card-content">
             <div class="card-top-tag">For Her · Sunnah Modesty</div>
             <h3 class="card-title">Women's Kaffan Set</h3>
             <div class="card-price-line">
-              <div class="card-price-num"><span class="curr-symbol">$</span><span class="curr-val" data-base-price="25">25</span></div>
+              <div class="card-price-num"><span class="curr-symbol">$</span><span class="curr-val"
+                  data-base-price="25">25</span></div>
               <div class="card-price-unit">/set</div>
             </div>
             <p class="card-shipping-text">Shipping calculated based on destination and delivery speed.</p>
@@ -1473,7 +1572,8 @@
               <li><strong>Seenah-band (Chest Band)</strong> — 37″ × 60″</li>
               <li><strong>Pre-Cut Cotton Ties (Ribat)</strong> — 3–4 strips included</li>
             </ul>
-            <a href="#sample-request" class="btn btn-primary card-action-btn" onclick="preselectForm('Individual Family Order', 'Women\'s Kaffan Set')">
+            <a href="#sample-request" class="btn btn-primary card-action-btn"
+              onclick="preselectForm('Individual Family Order', 'Women\'s Kaffan Set')">
               Order Women's Set
             </a>
           </div>
@@ -1489,18 +1589,22 @@
         <div class="section-badge">Verified Anatomy</div>
         <h2 class="section-title">Exact Sizing Matrix</h2>
         <p class="section-desc">
-          Audited and logically scaled dimensions ensuring generous coverage and excess knotting length across all heights.
+          Audited and logically scaled dimensions ensuring generous coverage and excess knotting length across all
+          heights.
         </p>
       </div>
 
       <div class="sizes-controls">
         <div class="sizes-tabs-list">
-          <button type="button" class="tab-trigger active" onclick="switchSizeTab('men', this)">Men's 3-Piece Anatomy</button>
-          <button type="button" class="tab-trigger" onclick="switchSizeTab('women', this)">Women's 5-Piece Anatomy</button>
+          <button type="button" class="tab-trigger active" onclick="switchSizeTab('men', this)">Men's 3-Piece
+            Anatomy</button>
+          <button type="button" class="tab-trigger" onclick="switchSizeTab('women', this)">Women's 5-Piece
+            Anatomy</button>
         </div>
 
         <div class="unit-switch">
-          <button type="button" class="unit-switch-btn active" id="btnInches" onclick="switchUnit('inches')">Inches (in)</button>
+          <button type="button" class="unit-switch-btn active" id="btnInches" onclick="switchUnit('inches')">Inches
+            (in)</button>
           <button type="button" class="unit-switch-btn" id="btnCm" onclick="switchUnit('cm')">Centimeters (cm)</button>
         </div>
       </div>
@@ -1545,7 +1649,8 @@
                 <td><span class="dimension-badge" data-in="106 × 60" data-cm="269 × 152">106 × 60</span></td>
               </tr>
               <tr>
-                <td><strong>Pre-Cut Ties</strong><br><small style="color:var(--text-muted);">Head, Waist &amp; Feet</small></td>
+                <td><strong>Pre-Cut Ties</strong><br><small style="color:var(--text-muted);">Head, Waist &amp;
+                    Feet</small></td>
                 <td><span class="arabic-label">رباط</span></td>
                 <td colspan="4" style="text-align:center;font-weight:600;color:#111827;">
                   3 to 4 Pre-Cut Cotton Tie Strips (60″ × 2″ each) Included in All Sets
@@ -1555,12 +1660,14 @@
           </table>
         </div>
         <div class="table-footnote">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#059669;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="color:#059669;">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 16v-4"></path>
             <path d="M12 8h.01"></path>
           </svg>
-          Dimensions scale logically across all sizes. Extra Large (XL) provides extended 126″ length ensuring full coverage for brothers over 6 feet.
+          Dimensions scale logically across all sizes. Extra Large (XL) provides extended 126″ length ensuring full
+          coverage for brothers over 6 feet.
         </div>
       </div>
 
@@ -1617,7 +1724,8 @@
           </table>
         </div>
         <div class="table-footnote">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#059669;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="color:#059669;">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 16v-4"></path>
             <path d="M12 8h.01"></path>
@@ -1635,7 +1743,8 @@
         <div class="section-badge">Educational Guide</div>
         <h2 class="section-title">The Sunnah of Takfeen</h2>
         <p class="section-desc">
-          Step-by-step guidance according to authentic Islamic jurisprudence for funeral committees and grieving relatives.
+          Step-by-step guidance according to authentic Islamic jurisprudence for funeral committees and grieving
+          relatives.
         </p>
       </div>
 
@@ -1643,22 +1752,26 @@
         <div class="sunnah-step">
           <div class="step-number">01</div>
           <h3>Preparation</h3>
-          <p>The table is prepared. The Lifafa sheet is laid first, followed by Izar and Qamees. The cloths are perfumed with Bukhoor or camphor an odd number of times.</p>
+          <p>The table is prepared. The Lifafa sheet is laid first, followed by Izar and Qamees. The cloths are perfumed
+            with Bukhoor or camphor an odd number of times.</p>
         </div>
         <div class="sunnah-step">
           <div class="step-number">02</div>
           <h3>Placement</h3>
-          <p>Following Ghusl, the deceased is dried gently and placed respectfully on the prepared cloths. Camphor is placed on the seven points of Sujood.</p>
+          <p>Following Ghusl, the deceased is dried gently and placed respectfully on the prepared cloths. Camphor is
+            placed on the seven points of Sujood.</p>
         </div>
         <div class="sunnah-step">
           <div class="step-number">03</div>
           <h3>Wrapping</h3>
-          <p>The Qamees covers the torso. The left side of the Izar wraps over the body, then the right. For women, the Khimar covers the hair and the Seenah-band secures the chest.</p>
+          <p>The Qamees covers the torso. The left side of the Izar wraps over the body, then the right. For women, the
+            Khimar covers the hair and the Seenah-band secures the chest.</p>
         </div>
         <div class="sunnah-step">
           <div class="step-number">04</div>
           <h3>Fastening</h3>
-          <p>The outermost Lifafa sheet is wrapped around the body. Cotton tie ribbons are fastened at the head, waist, and feet to prevent shifting during transit.</p>
+          <p>The outermost Lifafa sheet is wrapped around the body. Cotton tie ribbons are fastened at the head, waist,
+            and feet to prevent shifting during transit.</p>
         </div>
       </div>
     </div>
@@ -1678,7 +1791,9 @@
       <div class="testimonials-grid">
         <div class="testimonial-box">
           <p class="testimonial-quote">
-            "Wasim Trader Kaffans provided our community with pristine, properly prepared garments during a time of great need. The fabric was clean, 100% cotton, properly measured, and arrived promptly. We are deeply grateful for their service and recommend them to any masjid."
+            "Wasim Trader Kaffans provided our community with pristine, properly prepared garments during a time of
+            great need. The fabric was clean, 100% cotton, properly measured, and arrived promptly. We are deeply
+            grateful for their service and recommend them to any masjid."
           </p>
           <div class="testimonial-meta">
             <div class="testimonial-org">Masjid An-Nur</div>
@@ -1688,7 +1803,9 @@
 
         <div class="testimonial-box">
           <p class="testimonial-quote">
-            "We partnered with Wasim Trader to maintain reserve stock at our Islamic Center. The flat $25 price is an immense relief to families who are often quoted hundreds by commercial mortuaries. The service is handled with the utmost respect befitting this sacred duty."
+            "We partnered with Wasim Trader to maintain reserve stock at our Islamic Center. The flat $25 price is an
+            immense relief to families who are often quoted hundreds by commercial mortuaries. The service is handled
+            with the utmost respect befitting this sacred duty."
           </p>
           <div class="testimonial-meta">
             <div class="testimonial-org">Islamic Center of Reseda</div>
@@ -1698,7 +1815,9 @@
 
         <div class="testimonial-box">
           <p class="testimonial-quote">
-            "The pre-cut nature of the sets saves our volunteers over an hour of cutting during emergency Janazahs. The 5-piece women's set adheres strictly to Sunnah guidelines. We now keep 30 sets continuously stocked in Melbourne."
+            "The pre-cut nature of the sets saves our volunteers over an hour of cutting during emergency Janazahs. The
+            5-piece women's set adheres strictly to Sunnah guidelines. We now keep 30 sets continuously stocked in
+            Melbourne."
           </p>
           <div class="testimonial-meta">
             <div class="testimonial-org">Melbourne Islamic Funeral Care</div>
@@ -1718,15 +1837,18 @@
             <div class="section-badge">Direct Orders &amp; Support</div>
             <h3>Order or Inquire with Care</h3>
             <p>
-              Whether ordering for an immediate bereavement or checking delivery times for your local community, we assist you with patience, discretion, and reverence.
+              Whether ordering for an immediate bereavement or checking delivery times for your local community, we
+              assist you with patience, discretion, and reverence.
             </p>
           </div>
 
           <!-- Direct WhatsApp Channel -->
-          <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener" class="direct-contact-channel">
+          <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies"
+            target="_blank" rel="noopener" class="direct-contact-channel">
             <div class="channel-icon" style="background:#ECFDF5;color:#15803D;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
             </div>
             <div class="channel-info">
@@ -1738,7 +1860,8 @@
           <!-- Direct Email Channel -->
           <a href="mailto:iwasimtrader@gmail.com" class="direct-contact-channel">
             <div class="channel-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
               </svg>
@@ -1782,7 +1905,8 @@
 
             <div class="form-field">
               <label for="contactMessage">Message / Shipping City &amp; Country</label>
-              <textarea id="contactMessage" placeholder="Please mention destination city/country and any specific size preferences..."></textarea>
+              <textarea id="contactMessage"
+                placeholder="Please mention destination city/country and any specific size preferences..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width:100%;">
@@ -1809,48 +1933,61 @@
         <details class="faq-item" name="faq-set">
           <summary>
             Are Wasim Trader Kaffans 100% compliant with Islamic Sunnah?
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </summary>
           <div class="faq-body">
-            Yes, strictly. Our garments adhere to classical Islamic jurisprudence (Fiqh) across all four Sunni schools. The men's set contains exactly 3 unstitched white cotton pieces (Lifafa, Izar, Qamees) plus pre-cut ties. The women's set contains exactly 5 pieces (Lifafa, Izar, Qamees, Khimar/Aurni, Seenah-band) plus pre-cut ties for comprehensive modesty.
+            Yes, strictly. Our garments adhere to classical Islamic jurisprudence (Fiqh) across all four Sunni schools.
+            The men's set contains exactly 3 unstitched white cotton pieces (Lifafa, Izar, Qamees) plus pre-cut ties.
+            The women's set contains exactly 5 pieces (Lifafa, Izar, Qamees, Khimar/Aurni, Seenah-band) plus pre-cut
+            ties for comprehensive modesty.
           </div>
         </details>
 
         <details class="faq-item" name="faq-set">
           <summary>
             How fast can you dispatch in an emergency Janazah situation?
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </summary>
           <div class="faq-body">
-            We understand that Islamic burials must take place as swiftly as possible. For emergency requests, contact our dedicated WhatsApp line immediately. We offer expedited tracked courier dispatch for urgent family needs across USA, Australia, and New Zealand.
+            We understand that Islamic burials must take place as swiftly as possible. For emergency requests, contact
+            our dedicated WhatsApp line immediately. We offer expedited tracked courier dispatch for urgent family needs
+            across USA, Australia, and New Zealand.
           </div>
         </details>
 
         <details class="faq-item" name="faq-set">
           <summary>
             How do the pre-cut ties (Ribat) work?
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </summary>
           <div class="faq-body">
-            Every set includes 3 to 4 pre-cut pure cotton tie strips (60″ × 2″ each). Volunteers use them to fasten the shroud at the head, midsection, and feet during Janazah transit. They are untied or loosened upon placement in the Qabr (grave) according to Sunnah.
+            Every set includes 3 to 4 pre-cut pure cotton tie strips (60″ × 2″ each). Volunteers use them to fasten the
+            shroud at the head, midsection, and feet during Janazah transit. They are untied or loosened upon placement
+            in the Qabr (grave) according to Sunnah.
           </div>
         </details>
 
         <details class="faq-item" name="faq-set">
           <summary>
             Can donors purchase sets as Sadaqah Jariyah for their community?
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </summary>
           <div class="faq-body">
-            Yes, many community members purchase batches of sets to donate directly to their local community or funeral volunteers as continuous ongoing charity (*Sadaqah Jariyah*). We can deliver the shipment directly to your nominated destination.
+            Yes, many community members purchase batches of sets to donate directly to their local community or funeral
+            volunteers as continuous ongoing charity (*Sadaqah Jariyah*). We can deliver the shipment directly to your
+            nominated destination.
           </div>
         </details>
       </div>
@@ -1864,9 +2001,9 @@
         <div>
           <div class="footer-logo">Wasim Trader <span>Kaffans</span></div>
           <p class="footer-desc">
-            Reliable, 100% Sunnah-compliant Islamic burial garments for Muslim families and communities across USA, Australia, and New Zealand.
+            Reliable, 100% Sunnah-compliant Islamic burial garments for Muslim families and communities across USA,
+            Australia, and New Zealand.
           </p>
-          <div class="footer-ayah">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
           <div class="footer-ayah-trans">"Indeed, to Allah we belong, and to Him we shall return."</div>
         </div>
 
@@ -1885,7 +2022,8 @@
           <h4>Contact &amp; Support</h4>
           <ul class="footer-links">
             <li><a href="mailto:iwasimtrader@gmail.com">iwasimtrader@gmail.com</a></li>
-            <li><a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener">WhatsApp Direct Line</a></li>
+            <li><a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies"
+                target="_blank" rel="noopener">WhatsApp Direct Line</a></li>
             <li><span style="color:#6B7280;">Serving USA · Australia · New Zealand</span></li>
           </ul>
         </div>
@@ -1900,9 +2038,11 @@
 
   <!-- FLOATING WHATSAPP -->
   <div class="floating-action">
-    <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank" rel="noopener" class="float-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies" target="_blank"
+      rel="noopener" class="float-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
       <svg viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
     </a>
   </div>
@@ -1962,7 +2102,7 @@
     function switchSizeTab(tabId, btn) {
       document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
       document.querySelectorAll('.tab-trigger').forEach(b => b.classList.remove('active'));
-      
+
       const target = document.getElementById('tab-' + tabId);
       if (target) target.classList.add('active');
       if (btn) btn.classList.add('active');
@@ -2027,4 +2167,5 @@
   </script>
 
 </body>
+
 </html>
