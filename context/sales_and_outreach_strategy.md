@@ -1,12 +1,14 @@
 # Sales, Outreach & Go-To-Market Strategy
 
-## 1. Context within the Broader Project
+## 1. Consolidated Project Architecture
 
-This static website operates in direct synergy with the scraping and cold outreach pipeline located in the parent directory:
+All cold outreach, scraping, and landing page assets are now consolidated in this unified project workspace:
 - `masjid_scrapper.py`: Automated discovery of Mosques, Islamic Centers, and Funeral Directors across USA, Australia, and New Zealand from Google Maps.
-- `masjid_data.csv`: Database of hundreds of verified Mosques with physical addresses, websites, and validated contact emails.
-- `send_emails.py`: Python SMTP outreach engine delivering personalized, respectful proposals to Mosque boards and Janazah coordinators.
+- `masjid_data.csv`: Curated database of 493 unique, validated Mosque email addresses across USA (400+), Australia (70+), and New Zealand (23+).
+- `send_emails.py`: Modernized, rate-limited email engine with `--dry-run`, `--test <email>`, `--country`, `--limit`, and HTML preview generation.
 - `index.html`: The central landing destination (`wasim-trader-kaffans.vercel.app`) linked in every email, providing institutional credibility, full sizing specs, photos, customer reviews, and immediate action buttons.
+- `.env.example`: Template for secure SMTP and WhatsApp contact configuration.
+- `email_log.csv`: Automatic tracking log to ensure no masjid is ever emailed twice across re-runs.
 
 ---
 
