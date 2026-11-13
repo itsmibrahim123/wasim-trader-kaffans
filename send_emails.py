@@ -212,7 +212,7 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   .headline {{
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 20px;
-    color: #111827;
+    color: #85500A;
     line-height: 1.4;
     margin-bottom: 16px;
     font-weight: 600;
@@ -220,7 +220,7 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   .body-text {{
     font-size: 14.5px;
     line-height: 1.7;
-    color: #374151;
+    color: #4A3515;
     margin-bottom: 18px;
   }}
   /* Product Cards Grid */
@@ -245,8 +245,8 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #996515;
-    background-color: rgba(153, 101, 21, 0.1);
+    color: #85500A;
+    background-color: rgba(133, 80, 10, 0.1);
     padding: 3px 8px;
     border-radius: 4px;
     margin-bottom: 10px;
@@ -254,13 +254,13 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   .card-name {{
     font-family: Georgia, serif;
     font-size: 16px;
-    color: #111827;
+    color: #85500A;
     font-weight: 600;
     margin-bottom: 6px;
   }}
   .card-price {{
     font-size: 26px;
-    color: #111827;
+    color: #85500A;
     font-weight: 700;
     font-family: Georgia, serif;
     margin-bottom: 12px;
@@ -296,7 +296,7 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   .pillar-row td {{
     padding: 8px 0;
     font-size: 13.5px;
-    color: #374151;
+    color: #4A3515;
     vertical-align: top;
   }}
   .pillar-bullet {{
@@ -312,15 +312,15 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   }}
   .cta-btn {{
     display: inline-block;
-    background-color: #111827;
-    color: #FBF9F5 !important;
+    background-color: #85500A;
+    color: #FFFFFF !important;
     text-decoration: none;
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: 0.5px;
     padding: 15px 32px;
     border-radius: 5px;
-    box-shadow: 0 3px 10px rgba(17, 24, 39, 0.2);
+    box-shadow: 0 3px 10px rgba(133, 80, 10, 0.25);
   }}
   /* Footer */
   .footer {{
@@ -363,7 +363,7 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   @media (prefers-color-scheme: dark) {{
     body {{
       background-color: #0B0F17 !important;
-      color: #E5E7EB !important;
+      color: #E5D5B8 !important;
     }}
     .container {{
       background-color: #111827 !important;
@@ -373,33 +373,37 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
       background-color: #111827 !important;
     }}
     .headline {{
-      color: #F9FAFB !important;
+      color: #F3C64F !important;
     }}
     .salutation {{
-      color: #9CA3AF !important;
+      color: #BFA980 !important;
     }}
     .body-text {{
-      color: #D1D5DB !important;
+      color: #E5D5B8 !important;
     }}
     .card-td {{
       background-color: #161B22 !important;
       border-color: #2D3748 !important;
     }}
+    .card-badge {{
+      color: #F3C64F !important;
+      background-color: rgba(243, 198, 79, 0.15) !important;
+    }}
     .card-name {{
-      color: #F9FAFB !important;
+      color: #F3C64F !important;
     }}
     .card-price {{
-      color: #F9FAFB !important;
+      color: #F3C64F !important;
     }}
     .card-pieces {{
-      color: #9CA3AF !important;
+      color: #BFA980 !important;
       border-top-color: #2D3748 !important;
     }}
     .pillar-row td {{
-      color: #D1D5DB !important;
+      color: #E5D5B8 !important;
     }}
     .cta-btn {{
-      background-color: #D4AF37 !important;
+      background-color: #F3C64F !important;
       color: #0B0F17 !important;
       font-weight: 700 !important;
     }}
@@ -414,9 +418,10 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
   [data-ogsc] body {{ background-color: #0B0F17 !important; }}
   [data-ogsc] .container {{ background-color: #111827 !important; border-color: #2D3748 !important; }}
   [data-ogsc] .card-td {{ background-color: #161B22 !important; border-color: #2D3748 !important; }}
-  [data-ogsc] .headline, [data-ogsc] .card-name, [data-ogsc] .card-price {{ color: #F9FAFB !important; }}
-  [data-ogsc] .body-text, [data-ogsc] .pillar-row td {{ color: #D1D5DB !important; }}
-  [data-ogsc] .cta-btn {{ background-color: #D4AF37 !important; color: #0B0F17 !important; }}
+  [data-ogsc] .headline, [data-ogsc] .card-name, [data-ogsc] .card-price {{ color: #F3C64F !important; }}
+  [data-ogsc] .card-badge {{ color: #F3C64F !important; background-color: rgba(243, 198, 79, 0.15) !important; }}
+  [data-ogsc] .body-text, [data-ogsc] .pillar-row td {{ color: #E5D5B8 !important; }}
+  [data-ogsc] .cta-btn {{ background-color: #F3C64F !important; color: #0B0F17 !important; }}
 </style>
 </head>
 <body>
@@ -508,11 +513,11 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
       May Allah (SWT) reward your masjid and volunteers for your dedicated service to the community.
     </p>
 
-    <p style="margin-top:20px; font-size:14px; color:#111827;">
+    <p style="margin-top:20px; font-size:14px; color:#85500A;">
       Warmest regards,<br/>
       <strong>Wasim</strong><br/>
-      <span style="font-size:12px; color:#996515;">Wasim Trader Kaffans</span><br/>
-      <a href="mailto:{GMAIL_ADDRESS}" style="color:#6B7280; font-size:12px; text-decoration:none;">{GMAIL_ADDRESS}</a>
+      <span style="font-size:12px; color:#85500A;">Wasim Trader Kaffans</span><br/>
+      <a href="mailto:{GMAIL_ADDRESS}" style="color:#785A28; font-size:12px; text-decoration:none;">{GMAIL_ADDRESS}</a>
     </p>
 
   </div>
@@ -768,7 +773,7 @@ def generate_preview(recipients: list[dict]) -> str:
   }}
   .mode-btn.active {{
     background: #D4AF37;
-    color: #111827;
+    color: #0B0F17;
   }}
 
   /* CONTROLS ROW */
@@ -896,7 +901,7 @@ def generate_preview(recipients: list[dict]) -> str:
     margin-bottom: 2px;
   }}
   .meta-item span, .meta-item a {{
-    color: #111827;
+    color: #85500A;
     font-weight: 600;
     text-decoration: none;
     word-break: break-all;
@@ -914,7 +919,7 @@ def generate_preview(recipients: list[dict]) -> str:
     margin-top: 4px;
   }}
   .meta-subject strong {{
-    color: #996515;
+    color: #85500A;
   }}
 
   /* EMAIL PREVIEW FRAME */
@@ -949,6 +954,7 @@ def generate_preview(recipients: list[dict]) -> str:
   }}
   .feed-header .feed-title {{
     font-weight: 600;
+    color: #F3C64F;
   }}
   .feed-header .feed-email {{
     color: #D4AF37;
@@ -1104,14 +1110,16 @@ def generate_preview(recipients: list[dict]) -> str:
     const bgOuter = isDarkPreview ? '#0B0F17' : '#F4F1EA';
     const bgContainer = isDarkPreview ? '#111827' : '#FFFFFF';
     const borderColor = isDarkPreview ? '#2D3748' : '#E5E7EB';
-    const textColor = isDarkPreview ? '#D1D5DB' : '#374151';
-    const headlineColor = isDarkPreview ? '#F9FAFB' : '#111827';
-    const salutationColor = isDarkPreview ? '#9CA3AF' : '#6B7280';
+    const textColor = isDarkPreview ? '#E5D5B8' : '#4A3515';
+    const headlineColor = isDarkPreview ? '#F3C64F' : '#85500A';
+    const salutationColor = isDarkPreview ? '#BFA980' : '#785A28';
     const cardBg = isDarkPreview ? '#161B22' : '#FAF8F5';
-    const cardTitleColor = isDarkPreview ? '#F9FAFB' : '#111827';
-    const cardPiecesColor = isDarkPreview ? '#9CA3AF' : '#4B5563';
-    const ctaBg = isDarkPreview ? '#D4AF37' : '#111827';
-    const ctaColor = isDarkPreview ? '#0B0F17' : '#FBF9F5';
+    const cardTitleColor = isDarkPreview ? '#F3C64F' : '#85500A';
+    const cardPiecesColor = isDarkPreview ? '#BFA980' : '#4B5563';
+    const badgeColor = isDarkPreview ? '#F3C64F' : '#85500A';
+    const badgeBg = isDarkPreview ? 'rgba(243, 198, 79, 0.15)' : 'rgba(133, 80, 10, 0.1)';
+    const ctaBg = isDarkPreview ? '#F3C64F' : '#85500A';
+    const ctaColor = isDarkPreview ? '#0B0F17' : '#FFFFFF';
     const ctaWeight = isDarkPreview ? '700' : '600';
     const footerBg = isDarkPreview ? '#0B0F17' : '#111827';
 
@@ -1155,7 +1163,7 @@ def generate_preview(recipients: list[dict]) -> str:
           <table style="width: 100%; border-collapse: separate; border-spacing: 12px 0; margin: 24px -12px;" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td style="width: 50%; vertical-align: top; background-color: ${{cardBg}}; border: 1px solid ${{borderColor}}; border-radius: 6px; padding: 20px 16px; text-align: center;">
-                <div style="display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #996515; background-color: rgba(153, 101, 21, 0.1); padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">
+                <div style="display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: ${{badgeColor}}; background-color: ${{badgeBg}}; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">
                   Men's Set
                 </div>
                 <div style="font-family: Georgia, serif; font-size: 16px; color: ${{cardTitleColor}}; font-weight: 600; margin-bottom: 6px;">
@@ -1173,7 +1181,7 @@ def generate_preview(recipients: list[dict]) -> str:
                 </ul>
               </td>
               <td style="width: 50%; vertical-align: top; background-color: ${{cardBg}}; border: 1px solid ${{borderColor}}; border-radius: 6px; padding: 20px 16px; text-align: center;">
-                <div style="display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #996515; background-color: rgba(153, 101, 21, 0.1); padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">
+                <div style="display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: ${{badgeColor}}; background-color: ${{badgeBg}}; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">
                   Women's Set
                 </div>
                 <div style="font-family: Georgia, serif; font-size: 16px; color: ${{cardTitleColor}}; font-weight: 600; margin-bottom: 6px;">
@@ -1224,7 +1232,7 @@ def generate_preview(recipients: list[dict]) -> str:
 
           <!-- CTA BUTTON -->
           <div style="text-align: center; margin: 30px 0 24px;">
-            <a href="${{WEBSITE_URL}}" style="display: inline-block; background-color: ${{ctaBg}}; color: ${{ctaColor}} !important; text-decoration: none; font-size: 13.5px; font-weight: ${{ctaWeight}}; letter-spacing: 0.5px; padding: 15px 32px; border-radius: 5px; box-shadow: 0 3px 10px rgba(17, 24, 39, 0.2);" target="_blank">
+            <a href="${{WEBSITE_URL}}" style="display: inline-block; background-color: ${{ctaBg}}; color: ${{ctaColor}} !important; text-decoration: none; font-size: 13.5px; font-weight: ${{ctaWeight}}; letter-spacing: 0.5px; padding: 15px 32px; border-radius: 5px; box-shadow: 0 3px 10px rgba(133, 80, 10, 0.25);" target="_blank">
               Explore Sizing &amp; Details on Our Website →
             </a>
           </div>
@@ -1236,15 +1244,15 @@ def generate_preview(recipients: list[dict]) -> str:
           <p style="margin-top: 20px; font-size: 14px; color: ${{headlineColor}};">
             Warmest regards,<br/>
             <strong>Wasim</strong><br/>
-            <span style="font-size: 12px; color: #996515;">Wasim Trader Kaffans</span><br/>
-            <a href="mailto:${{GMAIL_ADDRESS}}" style="color: #6B7280; font-size: 12px; text-decoration: none;">${{GMAIL_ADDRESS}}</a>
+            <span style="font-size: 12px; color: ${{badgeColor}};">Wasim Trader Kaffans</span><br/>
+            <a href="mailto:${{GMAIL_ADDRESS}}" style="color: ${{salutationColor}}; font-size: 12px; text-decoration: none;">${{GMAIL_ADDRESS}}</a>
           </p>
         </div>
 
         <!-- FOOTER -->
         <div style="height: 3px; background: linear-gradient(90deg, #111827 0%, #D4AF37 50%, #111827 100%);"></div>
         <div style="background-color: ${{footerBg}}; padding: 28px 24px; text-align: center; color: #9CA3AF;">
-          <div style="font-family: Georgia, serif; font-size: 15px; color: #FBF9F5; margin-bottom: 8px;">
+          <div style="font-family: Georgia, serif; font-size: 15px; color: #F3C64F; margin-bottom: 8px;">
             Wasim Trader Kaffans
           </div>
           <div style="font-size: 12px; margin-bottom: 12px;">
