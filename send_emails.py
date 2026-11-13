@@ -64,6 +64,16 @@ PREVIEW_FILE = "email_preview.html"
 # Default subject line (respectful, community-focused, high open rate)
 DEFAULT_SUBJECT = "Sunnah Kaffan Sets for {masjid_name} — $25 (Delivery Included · Min 100 Pcs)"
 
+# Explicit Exclusions / Blacklist (User-Requested)
+EXCLUDED_EMAILS = {
+    "icreseda1@aol.com",
+    "secretary@masjidannur.com",
+    "info@masjidannur.org",
+    "media@annurfoundation.org",
+    "info@alnurmasjid.org",
+}
+EXCLUDED_KEYWORDS = ["reseda", "rasaeda", "an nur", "an-nur", "annur", "al nur"]
+
 # ──────────────────────────────────────────────
 # LOGGING
 # ──────────────────────────────────────────────
@@ -628,8 +638,13 @@ def load_recipients(csv_path: str, country_filter: str = None) -> list[dict]:
                 skipped_country += 1
                 continue
 
-            seen_emails.add(email)
             name = row.get("Name", "").strip()
+            name_lower = name.lower()
+            if email in EXCLUDED_EMAILS or any(kw in name_lower for kw in EXCLUDED_KEYWORDS):
+                skipped_invalid += 1
+                continue
+
+            seen_emails.add(email)
             recipients.append({
                 "country": country or "International",
                 "name": name,
@@ -657,7 +672,7 @@ def load_already_sent(log_path: str) -> set[str]:
     with open(path, newline="", encoding="utf-8", errors="ignore") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if row.get("Status") == "SENT":
+            if row.get("Status") in ("SENT", "EXCLUDED", "BLOCKED"):
                 email = row.get("Email", "").strip().lower()
                 if email:
                     sent.add(email)
@@ -1573,6 +1588,10 @@ def run_campaign(
             name = rec["name"]
             email = rec["email"]
             country = rec["country"]
+
+            if email.lower() in EXCLUDED_EMAILS or any(kw in name.lower() for kw in EXCLUDED_KEYWORDS):
+                log.info("⛔ Skipping excluded recipient in send loop: %s (%s)", name, email)
+                continue
 
             log.info("── [%d/%d] Sending to: %s (%s)", idx, len(pending), name[:35], email)
             try:
