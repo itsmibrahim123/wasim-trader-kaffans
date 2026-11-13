@@ -36,14 +36,22 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
+try:
+    from dotenv import load_dotenv
+    # Load environment variables from .env file
+    load_dotenv()
+except ImportError:
+    pass
+
 
 # ──────────────────────────────────────────────
 # CONFIGURATION & DEFAULTS
 # ──────────────────────────────────────────────
-GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS", "iwasimtrader@gmail.com")
-GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "hast1111").strip()
-WEBSITE_URL = os.getenv("WEBSITE_URL", "https://wasim-trader-kaffans.vercel.app/").rstrip("/")
-WHATSAPP_NUMBER = os.getenv("WHATSAPP_NUMBER", "03000418358").strip()
+GMAIL_ADDRESS = (os.getenv("GMAIL_ADDRESS") or "iwasimtrader@gmail.com").strip()
+# Automatically clean spaces from Google App Passwords (e.g., "abcd efgh ijkl mnop" -> "abcdefghijklmnop")
+GMAIL_APP_PASSWORD = (os.getenv("GMAIL_APP_PASSWORD") or "").strip().replace(" ", "")
+WEBSITE_URL = (os.getenv("WEBSITE_URL") or "https://wasim-trader-kaffans.vercel.app/").rstrip("/")
+WHATSAPP_NUMBER = (os.getenv("WHATSAPP_NUMBER") or "03000418358").strip()
 
 CSV_FILE = "masjid_data.csv"
 LOG_FILE = "email_log.csv"
