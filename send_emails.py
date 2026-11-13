@@ -1511,6 +1511,10 @@ def run_campaign(
     pending = [r for r in recipients if r["email"] not in already_sent]
     log.info("📩 Previously sent: %d | Pending to send: %d", len(already_sent), len(pending))
 
+    if not pending:
+        log.info("🎉 All %d masjids have already received emails! Campaign is 100%% complete.", total)
+        return
+
     if limit and limit > 0:
         pending = pending[:limit]
         log.info("🎯 Session limit applied: processing first %d masjids", len(pending))
@@ -1675,6 +1679,7 @@ def main():
     parser.add_argument("--limit", type=int, help="Maximum number of emails to send in this session")
     parser.add_argument("--delay", type=str, default="20,40", help="Delay range in seconds between emails (default: '20,40')")
     parser.add_argument("--csv", type=str, default=CSV_FILE, help=f"Path to CSV file (default: {CSV_FILE})")
+    parser.add_argument("--yes", "-y", action="store_true", help="Skip manual confirmation prompt (for scheduled/automated runs)")
 
     args = parser.parse_args()
 
@@ -1725,10 +1730,11 @@ def main():
     print(f"  Website URL:         {WEBSITE_URL}")
     print("=" * 60)
 
-    confirm = input("\n⚠️ Are you sure you want to start sending live emails? [y/N]: ").strip().lower()
-    if confirm != "y":
-        print("Aborted. No emails sent.\n")
-        return
+    if not args.yes:
+        confirm = input("\n⚠️ Are you sure you want to start sending live emails? [y/N]: ").strip().lower()
+        if confirm != "y":
+            print("Aborted. No emails sent.\n")
+            return
 
     run_campaign(recipients, limit=args.limit, delay_range=delay_range, dry_run=False)
 
