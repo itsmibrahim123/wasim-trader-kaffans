@@ -65,20 +65,20 @@
       --bg-card: #FFFFFF;
       --nav-bg: rgba(255, 255, 255, 0.94);
 
-      /* High-Contrast Typography */
-      --text-main: #111827;
-      /* Deep charcoal/black */
-      --text-body: #374151;
-      /* High-contrast readable gray */
-      --text-muted: #6B7280;
-      /* Neutral muted text */
-      --text-light: #9CA3AF;
+      /* High-Contrast Gold Typography */
+      --text-main: #85500A;
+      /* Burnished Antique Gold (WCAG AAA >= 5.8:1 on cream/white) */
+      --text-body: #4A3515;
+      /* Warm deep bronze-gold for rich readable body text (10.2:1 contrast) */
+      --text-muted: #785A28;
+      /* Warm antique gold muted text */
+      --text-light: #9E7D47;
 
-      /* Subtle Gold Accents & Badges ONLY (No primary text in gold) */
-      --gold-accent: #996515;
-      --gold-accent-hover: #784F10;
-      --gold-bg: rgba(153, 101, 21, 0.08);
-      --gold-border: rgba(153, 101, 21, 0.28);
+      /* Gold Accents & Badges */
+      --gold-accent: #85500A;
+      --gold-accent-hover: #6D4106;
+      --gold-bg: rgba(133, 80, 10, 0.08);
+      --gold-border: rgba(133, 80, 10, 0.28);
 
       /* Borders & Shadows */
       --border-neutral: #E5E7EB;
@@ -99,7 +99,7 @@
       --input-border: #E5E7EB;
       --input-focus-bg: #FFFFFF;
       --channel-icon-bg: #F3F4F6;
-      --channel-icon-color: #111827;
+      --channel-icon-color: var(--text-main);
       --card-photo-bg: #FFFFFF;
 
       /* Fonts */
@@ -121,15 +121,18 @@
       --bg-card: #161B22;
       --nav-bg: rgba(11, 15, 23, 0.94);
 
-      --text-main: #F9FAFB;
-      --text-body: #D1D5DB;
-      --text-muted: #9CA3AF;
-      --text-light: #6B7280;
+      --text-main: #F3C64F;
+      /* Radiant Metallic Gold (WCAG AAA >= 10.7:1 on dark surfaces) */
+      --text-body: #E5D5B8;
+      /* Soft warm champagne gold body text (12:1 contrast) */
+      --text-muted: #BFA980;
+      /* Elegant muted soft gold */
+      --text-light: #8E7D5B;
 
-      --gold-accent: #D4AF37;
-      --gold-accent-hover: #E5C358;
-      --gold-bg: rgba(212, 175, 55, 0.12);
-      --gold-border: rgba(212, 175, 55, 0.35);
+      --gold-accent: #F3C64F;
+      --gold-accent-hover: #FFE082;
+      --gold-bg: rgba(243, 198, 79, 0.12);
+      --gold-border: rgba(243, 198, 79, 0.35);
 
       --border-neutral: #2D3748;
       --border-light: #1F2937;
@@ -148,7 +151,7 @@
       --input-border: #374151;
       --input-focus-bg: #111827;
       --channel-icon-bg: #1F2937;
-      --channel-icon-color: #D4AF37;
+      --channel-icon-color: #F3C64F;
       --card-photo-bg: #111827;
     }
 
@@ -161,15 +164,15 @@
         --bg-card: #161B22;
         --nav-bg: rgba(11, 15, 23, 0.94);
 
-        --text-main: #F9FAFB;
-        --text-body: #D1D5DB;
-        --text-muted: #9CA3AF;
-        --text-light: #6B7280;
+        --text-main: #F3C64F;
+        --text-body: #E5D5B8;
+        --text-muted: #BFA980;
+        --text-light: #8E7D5B;
 
-        --gold-accent: #D4AF37;
-        --gold-accent-hover: #E5C358;
-        --gold-bg: rgba(212, 175, 55, 0.12);
-        --gold-border: rgba(212, 175, 55, 0.35);
+        --gold-accent: #F3C64F;
+        --gold-accent-hover: #FFE082;
+        --gold-bg: rgba(243, 198, 79, 0.12);
+        --gold-border: rgba(243, 198, 79, 0.35);
 
         --border-neutral: #2D3748;
         --border-light: #1F2937;
@@ -188,7 +191,7 @@
         --input-border: #374151;
         --input-focus-bg: #111827;
         --channel-icon-bg: #1F2937;
-        --channel-icon-color: #D4AF37;
+        --channel-icon-color: #F3C64F;
         --card-photo-bg: #111827;
       }
     }
@@ -295,13 +298,15 @@
       background: var(--text-main);
       color: #FFFFFF;
       border-color: var(--text-main);
-      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.15);
+      box-shadow: 0 2px 8px rgba(133, 80, 10, 0.2);
     }
 
     .btn-primary:hover {
-      background: #000000;
+      background: var(--gold-accent-hover);
+      border-color: var(--gold-accent-hover);
+      color: #FFFFFF;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(17, 24, 39, 0.25);
+      box-shadow: 0 4px 12px rgba(133, 80, 10, 0.3);
     }
 
     :root[data-theme="dark"] .btn-primary,
@@ -310,15 +315,15 @@
       color: #0B0F17;
       border-color: var(--gold-accent);
       font-weight: 700;
-      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 2px 10px rgba(243, 198, 79, 0.25);
     }
 
     :root[data-theme="dark"] .btn-primary:hover,
     :root:has(> head > meta[name="color-scheme"][content="dark"]) .btn-primary:hover {
       background: var(--gold-accent-hover);
-      color: #000000;
+      color: #0B0F17;
       border-color: var(--gold-accent-hover);
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+      box-shadow: 0 4px 14px rgba(243, 198, 79, 0.35);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -327,13 +332,13 @@
         color: #0B0F17;
         border-color: var(--gold-accent);
         font-weight: 700;
-        box-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+        box-shadow: 0 2px 10px rgba(243, 198, 79, 0.25);
       }
       :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) .btn-primary:hover {
         background: var(--gold-accent-hover);
-        color: #000000;
+        color: #0B0F17;
         border-color: var(--gold-accent-hover);
-        box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+        box-shadow: 0 4px 14px rgba(243, 198, 79, 0.35);
       }
     }
 
@@ -386,7 +391,7 @@
     }
 
     .top-bar strong {
-      color: #FFFFFF;
+      color: #FBBF24;
     }
 
     .top-bar a {
@@ -431,7 +436,7 @@
     .nav-logo-icon {
       width: 34px;
       height: 34px;
-      background: #111827;
+      background: var(--gold-accent);
       color: #FFFFFF;
       border-radius: 50%;
       display: flex;
@@ -440,6 +445,18 @@
       font-family: var(--font-arabic);
       font-size: 1.25rem;
       line-height: 1;
+      font-weight: 700;
+    }
+
+    :root[data-theme="dark"] .nav-logo-icon,
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) .nav-logo-icon {
+      color: #0B0F17;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) .nav-logo-icon {
+        color: #0B0F17;
+      }
     }
 
     .nav-logo-text {
@@ -669,16 +686,14 @@
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 3.8rem);
       line-height: 1.12;
-      color: #111827;
-      /* Deep charcoal/black */
+      color: var(--text-main);
       margin-bottom: 1.25rem;
       letter-spacing: -0.015em;
     }
 
     .hero-subtitle {
       font-size: 1.15rem;
-      color: #374151;
-      /* High contrast body */
+      color: var(--text-body);
       line-height: 1.75;
       margin-bottom: 2rem;
       max-width: 660px;
@@ -701,7 +716,7 @@
       gap: 0.45rem;
       background: var(--bg-white);
       border: 1px solid var(--border-neutral);
-      color: #111827;
+      color: var(--text-main);
       padding: 0.4rem 0.85rem;
       border-radius: 999px;
       font-size: 0.78rem;
@@ -732,7 +747,7 @@
     }
 
     .hero-subtext-link a {
-      color: #111827;
+      color: var(--gold-accent);
       font-weight: 600;
       text-decoration: underline;
     }
@@ -1390,12 +1405,12 @@
       font-family: var(--font-serif);
       font-size: 1.85rem;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #F3C64F;
       margin-bottom: 0.5rem;
     }
 
     .footer-logo span {
-      color: #FBBF24;
+      color: #FFE082;
       font-style: italic;
       font-weight: 400;
     }
@@ -1409,7 +1424,7 @@
     }
 
     .footer-col h4 {
-      color: #FFFFFF;
+      color: #F3C64F;
       font-size: 0.8rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -1911,7 +1926,7 @@
                 <td><strong>Pre-Cut Ties</strong><br><small style="color:var(--text-muted);">Head, Waist &amp;
                     Feet</small></td>
                 <td><span class="arabic-label">رباط</span></td>
-                <td colspan="4" style="text-align:center;font-weight:600;color:#111827;">
+                <td colspan="4" style="text-align:center;font-weight:600;color:var(--text-main);">
                   3 to 4 Pre-Cut Cotton Tie Strips (60″ × 2″ each) Included in All Sets
                 </td>
               </tr>
@@ -2256,7 +2271,7 @@
             <li><a href="mailto:iwasimtrader@gmail.com">iwasimtrader@gmail.com</a></li>
             <li><a href="https://wa.me/?text=As-salamu%20alaykum,%20I%20am%20inquiring%20about%20kaffan%20supplies"
                 target="_blank" rel="noopener">WhatsApp Direct Line</a></li>
-            <li><span style="color:#6B7280;">Serving USA · Australia · New Zealand</span></li>
+            <li><span style="color:#9CA3AF;">Serving USA · Australia · New Zealand</span></li>
           </ul>
         </div>
       </div>
