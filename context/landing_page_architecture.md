@@ -15,12 +15,13 @@ The landing page (`index.html`) is architected with a slick, minimal, and high-c
 ├────────────────────────────────────────────────────────┤
 │ 2. Hero Section (Minimalist, Centered, High-Contrast)  │
 │    - Deep charcoal headline (#111827) on warm cream    │
-│    - Subheadline explaining pre-cut 100% cotton sets   │
+│    - Subheadline: $25/set including delivery (min 100) │
 │    - 3 Trust Pills with clean CSS emerald dots:         │
 │      • 100% Pure White Cotton                          │
 │      • Sunnah-Compliant Pre-Cut Dimensions             │
-│      • Ready-to-Use Protective Packaging               │
-│    - Dual CTAs: "Order Kaffan Set" & "View Sizing"     │
+│      • $25 / Set (Delivery Included · Min. 100 pcs)    │
+│    - Dual CTAs: "Order Kaffan Sets" & "View Sizing"    │
+│    - WhatsApp rush courier link                        │
 │    - ZERO IMAGES in Hero                               │
 ├────────────────────────────────────────────────────────┤
 │ 3. Sacred Trust Badges Strip                           │
@@ -31,13 +32,15 @@ The landing page (`index.html`) is architected with a slick, minimal, and high-c
 ├────────────────────────────────────────────────────────┤
 │ 4. Kaffan Sets / Offerings (THE ONLY IMAGE SECTION)     │
 │    - Centered 2-Card Balanced Grid (max-width: 920px)  │
-│    - Men's Set Card ($25 /set):                        │
+│    - Men's Set Card ($25 /set · Delivery Included):    │
 │      • Photo wrap: aspect-ratio 1:1, object-fit: contain│
 │      • Photo: `Kaffan3piece.jpeg`                      │
+│      • Min order: 100 pcs (extra rush courier fees)    │
 │      • 3 pieces + pre-cut tie ribbons                  │
-│    - Women's Set Card ($25 /set):                      │
+│    - Women's Set Card ($25 /set · Delivery Included):  │
 │      • Photo wrap: aspect-ratio 1:1, object-fit: contain│
 │      • Photo: `TiedKaffan.jpeg`                        │
+│      • Min order: 100 pcs (extra rush courier fees)    │
 │      • 5 pieces + pre-cut tie ribbons                  │
 │    - Identical card heights & aligned action buttons   │
 ├────────────────────────────────────────────────────────┤

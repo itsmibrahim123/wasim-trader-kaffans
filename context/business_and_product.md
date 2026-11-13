@@ -13,9 +13,9 @@ During a bereavement, grieving families and funeral volunteers face immense logi
 1. **Strict Sunnah Compliance**: Every set adheres strictly to Islamic jurisprudence (Fiqh) regarding piece count, generous coverage, modesty, and unstitched presentation.
 2. **Pre-Cut & Ready for Takfeen**: Eliminates the stress and error of cutting raw fabric during Janazah preparations.
 3. **100% Pure White Cotton**: Crafted from high-density, breathable, natural white cotton (Kora / Calico) without synthetic fibers, ensuring non-transparency while respecting the Sunnah of simplicity.
-4. **Transparent, Humble Pricing ($25 Flat Rate)**: $25 per complete set for both men and women, ensuring high-quality burial garments remain accessible to every family.
-5. **Rapid Dispatch & Global Reach**: Serving Mosques, Islamic Centers, and families across the USA, Australia, New Zealand, UK, and beyond.
-6. **Institutional Masjid Partnership**: Enabling masjids to keep emergency reserve stock in their Janazah facilities with flexible bulk pricing and community commission incentives.
+4. **Transparent Community Pricing ($25 Delivery Included · Min. 100 Pcs)**: $25 per complete set for both men and women with standard door-to-door delivery fully included (Minimum Order Quantity: 100 pieces). Expedited emergency rush delivery is available for an extra fee.
+5. **Rapid Dispatch & Global Reach**: Serving Mosques, Islamic Centers, and communities across the USA, Australia, and New Zealand.
+6. **Institutional Masjid Readiness**: Enabling masjids and funeral committees to keep emergency reserve stock in their Janazah facilities at predictable, all-inclusive unit rates.
 
 ---
 
@@ -23,14 +23,16 @@ During a bereavement, grieving families and funeral volunteers face immense logi
 
 ### A. Men's Kaffan Set (3 Pieces + Pre-Cut Ties)
 According to the Sunnah of the Prophet Muhammad ﷺ, the deceased male is shrouded in three white garments:
-- **Pricing**: $25 USD / set (*Shipping calculated based on destination and carton volume*).
+- **Pricing**: **$25 USD / set** (Standard delivery included).
+- **Minimum Order Quantity (MOQ)**: 100 pieces (mix and match Men's and Women's sets).
+- **Rush Fees**: Extra fee charged for expedited priority air courier in emergency Janazah situations.
 - **Available Sizes**: Small (S), Medium (M), Large (L), Extra Large (XL).
 - **Pre-Cut Ties Included**: 3 to 4 cotton tie ribbons (60″ × 2″ each) included in every set to secure head, midsection, and feet.
 
 #### Audited & Logically Scaled Measurements (Inches: Length × Width)
 
 | Piece | Arabic Name | Purpose | Small (S) | Medium (M) | Large (L) | Extra Large (XL) |
-| :--- | :--- | :--- | :---: | :---: | :---: | :---: |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Lifafa** | لفافة | Outermost sheet wrapping the entire body, extending beyond head and feet for knotting. | 100″ × 60″ | 108″ × 60″ | 116″ × 60″ | 126″ × 60″ |
 | **Izar** | إزار | Inner wrapper extending from the neck/shoulders down to the feet. | 90″ × 60″ | 98″ × 60″ | 106″ × 60″ | 116″ × 60″ |
 | **Qamees** | قميص | Sleeveless shroud covering the torso from shoulder down past knees/ankles. | 80″ × 60″ | 88″ × 60″ | 96″ × 60″ | 106″ × 60″ |
@@ -42,7 +44,9 @@ According to the Sunnah of the Prophet Muhammad ﷺ, the deceased male is shroud
 
 ### B. Women's Kaffan Set (5 Pieces + Pre-Cut Ties)
 According to the Sunnah, the deceased female is shrouded in five white garments to ensure complete modesty and honor:
-- **Pricing**: $25 USD / set (*Shipping calculated based on destination and carton volume*).
+- **Pricing**: **$25 USD / set** (Standard delivery included).
+- **Minimum Order Quantity (MOQ)**: 100 pieces (mix and match Men's and Women's sets).
+- **Rush Fees**: Extra fee charged for expedited priority air courier in emergency Janazah situations.
 - **Size**: Universal Generous Fit (engineered to comfortably drape and accommodate all heights and body structures).
 - **Pre-Cut Ties Included**: 3 to 4 cotton tie ribbons (60″ × 2″ each).
 

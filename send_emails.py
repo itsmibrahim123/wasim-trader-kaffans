@@ -36,27 +36,21 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
-# Load .env if present
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
 
 # ──────────────────────────────────────────────
 # CONFIGURATION & DEFAULTS
 # ──────────────────────────────────────────────
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS", "iwasimtrader@gmail.com")
-GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "").strip()
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "hast1111").strip()
 WEBSITE_URL = os.getenv("WEBSITE_URL", "https://wasim-trader-kaffans.vercel.app/").rstrip("/")
-WHATSAPP_NUMBER = os.getenv("WHATSAPP_NUMBER", "").strip()
+WHATSAPP_NUMBER = os.getenv("WHATSAPP_NUMBER", "03000418358").strip()
 
 CSV_FILE = "masjid_data.csv"
 LOG_FILE = "email_log.csv"
 PREVIEW_FILE = "email_preview.html"
 
 # Default subject line (respectful, community-focused, high open rate)
-DEFAULT_SUBJECT = "Sunnah Kaffan Sets & Complimentary Sample Kit for {masjid_name}"
+DEFAULT_SUBJECT = "Sunnah Kaffan Sets for {masjid_name} — $25 (Delivery Included · Min 100 Pcs)"
 
 # ──────────────────────────────────────────────
 # LOGGING
@@ -99,9 +93,9 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     """
     clean_name = (masjid_name or "").strip() or "your respected masjid"
     if clean_name == "your respected masjid":
-        subject = "Sunnah Kaffan Sets & Complimentary Sample Kit for Your Masjid"
+        subject = "Sunnah Kaffan Sets — $25 (Delivery Included · Min 100 Pcs)"
     else:
-        subject = f"Sunnah Kaffan Sets & Complimentary Sample Kit for {clean_name}"
+        subject = f"Sunnah Kaffan Sets for {clean_name} — $25 (Delivery Included · Min 100 Pcs)"
 
     # WhatsApp Link
     wa_text = f"As-salamu alaykum, I am inquiring about Kaffan sets for {clean_name}"
@@ -395,7 +389,7 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     </p>
 
     <p class="body-text">
-      <strong>Wasim Trader Kaffans</strong> provides 100% Sunnah-compliant, ready-to-use Islamic burial garments. Every set is pre-cut to generous, audited dimensions from 100% pure white opaque cotton, complete with pre-cut cotton tie ribbons (Ribat).
+      <strong>Wasim Trader Kaffans</strong> provides 100% Sunnah-compliant, ready-to-use Islamic burial garments at <strong>$25 per complete set including standard delivery</strong> (minimum order: 100 pieces; mix &amp; match Men's and Women's sets and sizes). Every set is pre-cut to generous, audited dimensions from 100% pure white opaque cotton, complete with pre-cut cotton tie ribbons (Ribat). For emergency Janazah situations requiring expedited courier service, extra rush fees apply.
     </p>
 
     <!-- PRODUCT CARDS -->
@@ -404,7 +398,8 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
         <td class="card-td">
           <div class="card-badge">Men's Set</div>
           <div class="card-name">3-Piece Sunnah Set</div>
-          <div class="card-price">$25 <span>/ complete set</span></div>
+          <div class="card-price">$25 <span style="display:block; font-size:11px; color:#059669; font-weight:600; margin-top:2px;">✓ Delivery Included</span></div>
+          <div style="font-size:10.5px; color:#6B7280; margin-top:-6px; margin-bottom:12px; font-weight:500;">Min. Order: 100 pcs (Mix &amp; Match)</div>
           <ul class="card-pieces">
             <li>Lifafa (Outer Shroud)</li>
             <li>Izar (Waist Wrap)</li>
@@ -415,7 +410,8 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
         <td class="card-td">
           <div class="card-badge">Women's Set</div>
           <div class="card-name">5-Piece Sunnah Set</div>
-          <div class="card-price">$25 <span>/ complete set</span></div>
+          <div class="card-price">$25 <span style="display:block; font-size:11px; color:#059669; font-weight:600; margin-top:2px;">✓ Delivery Included</span></div>
+          <div style="font-size:10.5px; color:#6B7280; margin-top:-6px; margin-bottom:12px; font-weight:500;">Min. Order: 100 pcs (Mix &amp; Match)</div>
           <ul class="card-pieces">
             <li>Lifafa (Outer Shroud)</li>
             <li>Izar (Waist Wrap)</li>
@@ -431,19 +427,19 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     <table class="pillars-table" cellpadding="0" cellspacing="0" border="0">
       <tr class="pillar-row">
         <td class="pillar-bullet">✦</td>
+        <td><strong>$25 Including Delivery (Min. 100 pcs):</strong> Standard delivery is fully included in the $25 rate. Mix and match Men's &amp; Women's sets and sizes freely.</td>
+      </tr>
+      <tr class="pillar-row">
+        <td class="pillar-bullet">✦</td>
+        <td><strong>Emergency Rush Delivery:</strong> Extra fee charged for expedited priority air courier when Janazah supplies are needed immediately.</td>
+      </tr>
+      <tr class="pillar-row">
+        <td class="pillar-bullet">✦</td>
         <td><strong>100% Pure White Cotton:</strong> Premium high-thread count weave, fully opaque and respectful.</td>
       </tr>
       <tr class="pillar-row">
         <td class="pillar-bullet">✦</td>
         <td><strong>Pre-Cut &amp; Ready:</strong> Zero cutting or measuring required during grief; neat pre-hemmed edges.</td>
-      </tr>
-      <tr class="pillar-row">
-        <td class="pillar-bullet">✦</td>
-        <td><strong>Direct Dispatch:</strong> Rapid delivery across the USA, Australia, and New Zealand.</td>
-      </tr>
-      <tr class="pillar-row">
-        <td class="pillar-bullet">✦</td>
-        <td><strong>Transparent $25 Community Rate:</strong> Individual sets and bulk carton pricing available.</td>
       </tr>
     </table>
 
@@ -515,15 +511,15 @@ To the Respected Administration and Funeral Committee of {clean_name},
 
 During moments of bereavement, community volunteers and grieving families should never face the distress of unrolling bulk fabric bolts or searching for cutting shears.
 
-Wasim Trader Kaffans provides 100% Sunnah-compliant, ready-to-use Islamic burial garment sets, pre-cut from 100% pure white opaque cotton:
+Wasim Trader Kaffans provides 100% Sunnah-compliant, ready-to-use Islamic burial garment sets at $25 per complete set including standard delivery (minimum order: 100 pieces; mix & match Men's and Women's sets):
 
-• MEN'S 3-PIECE SET ($25 / set):
+• MEN'S 3-PIECE SET ($25 / set · Delivery Included · Min. 100 pcs):
   - Lifafa (Outer Shroud)
   - Izar (Waist Wrap)
   - Qamees (Tunic)
   - Pre-cut cotton tie ribbons (Ribat) included
 
-• WOMEN'S 5-PIECE SET ($25 / set):
+• WOMEN'S 5-PIECE SET ($25 / set · Delivery Included · Min. 100 pcs):
   - Lifafa (Outer Shroud)
   - Izar (Waist Wrap)
   - Qamees (Tunic)
@@ -531,10 +527,10 @@ Wasim Trader Kaffans provides 100% Sunnah-compliant, ready-to-use Islamic burial
   - Seenah-band (Chest Band)
   - Pre-cut cotton tie ribbons included
 
-KEY PILLARS:
-- 100% Pure White Cotton (Opaque, high-thread count)
-- Pre-Cut Dimensions (Zero cutting hassle in grief)
-- Flat $25 Community Rate
+PRICING & DELIVERY TERMS:
+- $25 per set includes standard delivery (Minimum order: 100 pieces)
+- Mix & Match Men's and Women's sets and sizes freely
+- Expedited emergency courier available for an extra rush fee
 - Rapid Dispatch to USA, Australia & New Zealand
 
 VIEW SIZING & PRODUCT DETAILS:
@@ -1085,7 +1081,7 @@ def generate_preview(recipients: list[dict]) -> str:
           </p>
 
           <p style="font-size: 14.5px; line-height: 1.7; color: #374151; margin-bottom: 18px;">
-            <strong>Wasim Trader Kaffans</strong> provides 100% Sunnah-compliant, ready-to-use Islamic burial garments. Every set is pre-cut to generous, audited dimensions from 100% pure white opaque cotton, complete with pre-cut cotton tie ribbons (Ribat).
+            <strong>Wasim Trader Kaffans</strong> provides 100% Sunnah-compliant, ready-to-use Islamic burial garments at <strong>$25 per complete set including standard delivery</strong> (minimum order: 100 pieces; mix &amp; match Men's and Women's sets and sizes). Every set is pre-cut to generous, audited dimensions from 100% pure white opaque cotton, complete with pre-cut cotton tie ribbons (Ribat). For emergency Janazah situations requiring expedited courier service, extra rush fees apply.
           </p>
 
           <!-- PRODUCT CARDS -->
@@ -1098,9 +1094,10 @@ def generate_preview(recipients: list[dict]) -> str:
                 <div style="font-family: Georgia, serif; font-size: 16px; color: #111827; font-weight: 600; margin-bottom: 6px;">
                   3-Piece Sunnah Set
                 </div>
-                <div style="font-size: 26px; color: #111827; font-weight: 700; font-family: Georgia, serif; margin-bottom: 12px;">
-                  $25 <span style="font-size: 12px; color: #6B7280; font-weight: normal;">/ complete set</span>
+                <div style="font-size: 26px; color: #111827; font-weight: 700; font-family: Georgia, serif; margin-bottom: 4px;">
+                  $25 <span style="display:block; font-size: 11px; color: #059669; font-weight: 600; margin-top: 2px;">✓ Delivery Included</span>
                 </div>
+                <div style="font-size: 10.5px; color: #6B7280; margin-bottom: 12px; font-weight: 500;">Min. Order: 100 pcs (Mix &amp; Match)</div>
                 <ul style="font-size: 12px; color: #4B5563; line-height: 1.5; text-align: left; border-top: 1px solid #E5E7EB; padding-top: 10px; list-style: none;">
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Lifafa (Outer Shroud)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Izar (Waist Wrap)</li>
@@ -1115,9 +1112,10 @@ def generate_preview(recipients: list[dict]) -> str:
                 <div style="font-family: Georgia, serif; font-size: 16px; color: #111827; font-weight: 600; margin-bottom: 6px;">
                   5-Piece Sunnah Set
                 </div>
-                <div style="font-size: 26px; color: #111827; font-weight: 700; font-family: Georgia, serif; margin-bottom: 12px;">
-                  $25 <span style="font-size: 12px; color: #6B7280; font-weight: normal;">/ complete set</span>
+                <div style="font-size: 26px; color: #111827; font-weight: 700; font-family: Georgia, serif; margin-bottom: 4px;">
+                  $25 <span style="display:block; font-size: 11px; color: #059669; font-weight: 600; margin-top: 2px;">✓ Delivery Included</span>
                 </div>
+                <div style="font-size: 10.5px; color: #6B7280; margin-bottom: 12px; font-weight: 500;">Min. Order: 100 pcs (Mix &amp; Match)</div>
                 <ul style="font-size: 12px; color: #4B5563; line-height: 1.5; text-align: left; border-top: 1px solid #E5E7EB; padding-top: 10px; list-style: none;">
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Lifafa (Outer Shroud)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Izar (Waist Wrap)</li>
@@ -1134,6 +1132,18 @@ def generate_preview(recipients: list[dict]) -> str:
             <tr>
               <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
               <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
+                <strong>$25 Including Delivery (Min. 100 pcs):</strong> Standard delivery is fully included in the $25 rate. Mix and match Men's &amp; Women's sets and sizes freely.
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
+              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
+                <strong>Emergency Rush Delivery:</strong> Extra fee charged for expedited priority air courier when Janazah supplies are needed immediately.
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
+              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
                 <strong>100% Pure White Cotton:</strong> Premium high-thread count weave, fully opaque and respectful.
               </td>
             </tr>
@@ -1141,18 +1151,6 @@ def generate_preview(recipients: list[dict]) -> str:
               <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
               <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
                 <strong>Pre-Cut &amp; Ready:</strong> Zero cutting or measuring required during grief; neat pre-hemmed edges.
-              </td>
-            </tr>
-            <tr>
-              <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
-              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
-                <strong>Direct Dispatch:</strong> Rapid delivery across the USA, Australia, and New Zealand.
-              </td>
-            </tr>
-            <tr>
-              <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
-              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
-                <strong>Transparent $25 Community Rate:</strong> Individual sets and bulk carton pricing available.
               </td>
             </tr>
           </table>
@@ -1234,15 +1232,15 @@ To the Respected Administration and Funeral Committee of ${{cleanName}},
 
 We respectfully write to the leadership and funeral services committee of ${{cleanName}}. During moments of grief and bereavement, families and volunteer committees should never face the added hardship of unrolling bulk textile bolts or searching for cutting shears.
 
-Wasim Trader Kaffans provides 100% Sunnah-compliant, ready-to-use Islamic burial garment sets, pre-cut from 100% pure white opaque cotton:
+Wasim Trader Kaffans provides 100% Sunnah-compliant, ready-to-use Islamic burial garment sets at $25 per complete set including standard delivery (minimum order: 100 pieces; mix & match Men's and Women's sets):
 
-• MEN'S 3-PIECE SET ($25 / set):
+• MEN'S 3-PIECE SET ($25 / set · Delivery Included · Min. 100 pcs):
   - Lifafa (Outer Shroud)
   - Izar (Waist Wrap)
   - Qamees (Tunic)
   - Pre-cut cotton tie ribbons (Ribat) included
 
-• WOMEN'S 5-PIECE SET ($25 / set):
+• WOMEN'S 5-PIECE SET ($25 / set · Delivery Included · Min. 100 pcs):
   - Lifafa (Outer Shroud)
   - Izar (Waist Wrap)
   - Qamees (Tunic)
@@ -1250,10 +1248,10 @@ Wasim Trader Kaffans provides 100% Sunnah-compliant, ready-to-use Islamic burial
   - Seenah-band (Chest Band)
   - Pre-cut cotton tie ribbons included
 
-KEY PILLARS:
-- 100% Pure White Cotton (Opaque, high-thread count)
-- Pre-Cut Dimensions (Zero cutting hassle in grief)
-- Flat $25 Community Rate
+PRICING & DELIVERY TERMS:
+- $25 per set includes standard delivery (Minimum order: 100 pieces)
+- Mix & Match Men's and Women's sets and sizes freely
+- Expedited emergency courier available for an extra rush fee
 - Rapid Dispatch to USA, Australia & New Zealand
 
 VIEW SIZING & PRODUCT DETAILS:
