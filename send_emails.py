@@ -126,6 +126,8 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="supported-color-schemes" content="light dark"/>
 <title>{subject}</title>
 <style>
   /* Reset & Client Normalization */
@@ -354,6 +356,67 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
       padding: 24px 18px !important;
     }}
   }}
+  :root {{
+    color-scheme: light dark;
+    supported-color-schemes: light dark;
+  }}
+  @media (prefers-color-scheme: dark) {{
+    body {{
+      background-color: #0B0F17 !important;
+      color: #E5E7EB !important;
+    }}
+    .container {{
+      background-color: #111827 !important;
+      border-color: #2D3748 !important;
+    }}
+    .content {{
+      background-color: #111827 !important;
+    }}
+    .headline {{
+      color: #F9FAFB !important;
+    }}
+    .salutation {{
+      color: #9CA3AF !important;
+    }}
+    .body-text {{
+      color: #D1D5DB !important;
+    }}
+    .card-td {{
+      background-color: #161B22 !important;
+      border-color: #2D3748 !important;
+    }}
+    .card-name {{
+      color: #F9FAFB !important;
+    }}
+    .card-price {{
+      color: #F9FAFB !important;
+    }}
+    .card-pieces {{
+      color: #9CA3AF !important;
+      border-top-color: #2D3748 !important;
+    }}
+    .pillar-row td {{
+      color: #D1D5DB !important;
+    }}
+    .cta-btn {{
+      background-color: #D4AF37 !important;
+      color: #0B0F17 !important;
+      font-weight: 700 !important;
+    }}
+    .footer {{
+      background-color: #0B0F17 !important;
+    }}
+    .gold-divider {{
+      background: linear-gradient(90deg, #0B0F17 0%, #D4AF37 50%, #0B0F17 100%) !important;
+    }}
+  }}
+  /* Outlook.com & Android app dark mode fallbacks */
+  [data-ogsc] body {{ background-color: #0B0F17 !important; }}
+  [data-ogsc] .container {{ background-color: #111827 !important; border-color: #2D3748 !important; }}
+  [data-ogsc] .card-td {{ background-color: #161B22 !important; border-color: #2D3748 !important; }}
+  [data-ogsc] .headline, [data-ogsc] .card-name, [data-ogsc] .card-price {{ color: #F9FAFB !important; }}
+  [data-ogsc] .body-text, [data-ogsc] .pillar-row td {{ color: #D1D5DB !important; }}
+  [data-ogsc] .cta-btn {{ background-color: #D4AF37 !important; color: #0B0F17 !important; }}
 </style>
 </head>
 <body>
@@ -929,6 +992,7 @@ def generate_preview(recipients: list[dict]) -> str:
       <button class="mode-btn active" id="btn-mode-single" onclick="setMode('single')">🔍 Single Inspector</button>
       <button class="mode-btn" id="btn-mode-feed" onclick="setMode('feed')">📜 Continuous Feed (All)</button>
       <button class="mode-btn" id="btn-mode-plain" onclick="setMode('plain')">📝 Plain Text</button>
+      <button class="mode-btn" id="btn-theme-preview" onclick="togglePreviewTheme()" style="border-left: 2px solid #4B5563; margin-left: 6px;">🌙 Dark Email Mode</button>
     </div>
   </div>
 
@@ -1006,6 +1070,20 @@ def generate_preview(recipients: list[dict]) -> str:
   let currentIndex = 0;
   let currentMode = 'single';
   let activeCountry = 'ALL';
+  let isDarkPreview = false;
+
+  function togglePreviewTheme() {{
+    isDarkPreview = !isDarkPreview;
+    const btn = document.getElementById('btn-theme-preview');
+    if (btn) {{
+      btn.innerHTML = isDarkPreview ? '☀️ Light Email Mode' : '🌙 Dark Email Mode';
+    }}
+    if (currentMode === 'single') {{
+      renderCurrentSingle();
+    }} else if (currentMode === 'feed') {{
+      renderFeed();
+    }}
+  }}
 
   // Generate Email HTML for a specific masjid
   function generateEmailHTML(m) {{
@@ -1023,9 +1101,23 @@ def generate_preview(recipients: list[dict]) -> str:
       ? `https://wa.me/${{WHATSAPP_NUMBER}}?text=${{waText}}`
       : `https://wa.me/?text=${{waText}}`;
 
+    const bgOuter = isDarkPreview ? '#0B0F17' : '#F4F1EA';
+    const bgContainer = isDarkPreview ? '#111827' : '#FFFFFF';
+    const borderColor = isDarkPreview ? '#2D3748' : '#E5E7EB';
+    const textColor = isDarkPreview ? '#D1D5DB' : '#374151';
+    const headlineColor = isDarkPreview ? '#F9FAFB' : '#111827';
+    const salutationColor = isDarkPreview ? '#9CA3AF' : '#6B7280';
+    const cardBg = isDarkPreview ? '#161B22' : '#FAF8F5';
+    const cardTitleColor = isDarkPreview ? '#F9FAFB' : '#111827';
+    const cardPiecesColor = isDarkPreview ? '#9CA3AF' : '#4B5563';
+    const ctaBg = isDarkPreview ? '#D4AF37' : '#111827';
+    const ctaColor = isDarkPreview ? '#0B0F17' : '#FBF9F5';
+    const ctaWeight = isDarkPreview ? '700' : '600';
+    const footerBg = isDarkPreview ? '#0B0F17' : '#111827';
+
     return `
-    <div style="background-color: #F4F1EA; padding: 24px 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-      <div style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; border: 1px solid #E5E7EB; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);">
+    <div style="background-color: ${{bgOuter}}; padding: 24px 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; transition: background-color 0.2s ease;">
+      <div style="max-width: 600px; margin: 0 auto; background-color: ${{bgContainer}}; border-radius: 8px; overflow: hidden; border: 1px solid ${{borderColor}}; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); transition: all 0.2s ease;">
         
         <!-- HEADER -->
         <div style="background-color: #111827; padding: 36px 28px 30px; text-align: center;">
@@ -1043,55 +1135,55 @@ def generate_preview(recipients: list[dict]) -> str:
 
         <!-- CONTENT -->
         <div style="padding: 36px 32px 28px;">
-          <p style="font-size: 15px; color: #6B7280; font-style: italic; margin-bottom: 18px;">
+          <p style="font-size: 15px; color: ${{salutationColor}}; font-style: italic; margin-bottom: 18px;">
             As-salamu alaykum wa rahmatullahi wa barakatuh,
           </p>
 
-          <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; color: #111827; line-height: 1.4; margin-bottom: 16px; font-weight: 600;">
+          <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; color: ${{headlineColor}}; line-height: 1.4; margin-bottom: 16px; font-weight: 600;">
             Prepared with Reverence. Ready When Your Community Needs It Most.
           </div>
 
-          <p style="font-size: 14.5px; line-height: 1.7; color: #374151; margin-bottom: 18px;">
+          <p style="font-size: 14.5px; line-height: 1.7; color: ${{textColor}}; margin-bottom: 18px;">
             We respectfully write to the leadership and funeral services committee of <strong>${{cleanName}}</strong>. During moments of grief and bereavement, families and volunteer committees should never face the added hardship of unrolling bulk textile bolts or searching for cutting shears.
           </p>
 
-          <p style="font-size: 14.5px; line-height: 1.7; color: #374151; margin-bottom: 18px;">
+          <p style="font-size: 14.5px; line-height: 1.7; color: ${{textColor}}; margin-bottom: 18px;">
             <strong>Wasim Trader Kaffans</strong> provides 100% Sunnah-compliant, ready-to-use Islamic burial garments at <strong>$25 per complete set including standard delivery</strong> (minimum order: 100 pieces; mix &amp; match Men's and Women's sets and sizes). Every set is pre-cut to generous, audited dimensions from 100% pure white opaque cotton, complete with pre-cut cotton tie ribbons (Ribat). For emergency Janazah situations requiring expedited courier service, extra rush fees apply.
           </p>
 
           <!-- PRODUCT CARDS -->
           <table style="width: 100%; border-collapse: separate; border-spacing: 12px 0; margin: 24px -12px;" cellpadding="0" cellspacing="0" border="0">
             <tr>
-              <td style="width: 50%; vertical-align: top; background-color: #FAF8F5; border: 1px solid #E5E7EB; border-radius: 6px; padding: 20px 16px; text-align: center;">
+              <td style="width: 50%; vertical-align: top; background-color: ${{cardBg}}; border: 1px solid ${{borderColor}}; border-radius: 6px; padding: 20px 16px; text-align: center;">
                 <div style="display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #996515; background-color: rgba(153, 101, 21, 0.1); padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">
                   Men's Set
                 </div>
-                <div style="font-family: Georgia, serif; font-size: 16px; color: #111827; font-weight: 600; margin-bottom: 6px;">
+                <div style="font-family: Georgia, serif; font-size: 16px; color: ${{cardTitleColor}}; font-weight: 600; margin-bottom: 6px;">
                   3-Piece Sunnah Set
                 </div>
-                <div style="font-size: 26px; color: #111827; font-weight: 700; font-family: Georgia, serif; margin-bottom: 4px;">
+                <div style="font-size: 26px; color: ${{headlineColor}}; font-weight: 700; font-family: Georgia, serif; margin-bottom: 4px;">
                   $25 <span style="display:block; font-size: 11px; color: #059669; font-weight: 600; margin-top: 2px;">✓ Delivery Included</span>
                 </div>
                 <div style="font-size: 10.5px; color: #6B7280; margin-bottom: 12px; font-weight: 500;">Min. Order: 100 pcs (Mix &amp; Match)</div>
-                <ul style="font-size: 12px; color: #4B5563; line-height: 1.5; text-align: left; border-top: 1px solid #E5E7EB; padding-top: 10px; list-style: none;">
+                <ul style="font-size: 12px; color: ${{cardPiecesColor}}; line-height: 1.5; text-align: left; border-top: 1px solid ${{borderColor}}; padding-top: 10px; list-style: none;">
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Lifafa (Outer Shroud)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Izar (Waist Wrap)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Qamees (Chest Tunic)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> 3-4 Pre-Cut Tie Ribbons</li>
                 </ul>
               </td>
-              <td style="width: 50%; vertical-align: top; background-color: #FAF8F5; border: 1px solid #E5E7EB; border-radius: 6px; padding: 20px 16px; text-align: center;">
+              <td style="width: 50%; vertical-align: top; background-color: ${{cardBg}}; border: 1px solid ${{borderColor}}; border-radius: 6px; padding: 20px 16px; text-align: center;">
                 <div style="display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #996515; background-color: rgba(153, 101, 21, 0.1); padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">
                   Women's Set
                 </div>
-                <div style="font-family: Georgia, serif; font-size: 16px; color: #111827; font-weight: 600; margin-bottom: 6px;">
+                <div style="font-family: Georgia, serif; font-size: 16px; color: ${{cardTitleColor}}; font-weight: 600; margin-bottom: 6px;">
                   5-Piece Sunnah Set
                 </div>
-                <div style="font-size: 26px; color: #111827; font-weight: 700; font-family: Georgia, serif; margin-bottom: 4px;">
+                <div style="font-size: 26px; color: ${{headlineColor}}; font-weight: 700; font-family: Georgia, serif; margin-bottom: 4px;">
                   $25 <span style="display:block; font-size: 11px; color: #059669; font-weight: 600; margin-top: 2px;">✓ Delivery Included</span>
                 </div>
                 <div style="font-size: 10.5px; color: #6B7280; margin-bottom: 12px; font-weight: 500;">Min. Order: 100 pcs (Mix &amp; Match)</div>
-                <ul style="font-size: 12px; color: #4B5563; line-height: 1.5; text-align: left; border-top: 1px solid #E5E7EB; padding-top: 10px; list-style: none;">
+                <ul style="font-size: 12px; color: ${{cardPiecesColor}}; line-height: 1.5; text-align: left; border-top: 1px solid ${{borderColor}}; padding-top: 10px; list-style: none;">
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Lifafa (Outer Shroud)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Izar (Waist Wrap)</li>
                   <li style="margin-bottom: 4px;"><span style="color:#059669; font-weight:bold;">✓</span> Qamees (Tunic Garment)</li>
@@ -1106,25 +1198,25 @@ def generate_preview(recipients: list[dict]) -> str:
           <table style="width: 100%; margin: 22px 0; border-collapse: collapse;" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
-              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
+              <td style="padding: 8px 0; font-size: 13.5px; color: ${{textColor}}; vertical-align: top;">
                 <strong>$25 Including Delivery (Min. 100 pcs):</strong> Standard delivery is fully included in the $25 rate. Mix and match Men's &amp; Women's sets and sizes freely.
               </td>
             </tr>
             <tr>
               <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
-              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
+              <td style="padding: 8px 0; font-size: 13.5px; color: ${{textColor}}; vertical-align: top;">
                 <strong>Emergency Rush Delivery:</strong> Extra fee charged for expedited priority air courier when Janazah supplies are needed immediately.
               </td>
             </tr>
             <tr>
               <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
-              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
+              <td style="padding: 8px 0; font-size: 13.5px; color: ${{textColor}}; vertical-align: top;">
                 <strong>100% Pure White Cotton:</strong> Premium high-thread count weave, fully opaque and respectful.
               </td>
             </tr>
             <tr>
               <td style="width: 24px; color: #D4AF37; font-size: 14px; font-weight: bold; padding: 8px 0; vertical-align: top;">✦</td>
-              <td style="padding: 8px 0; font-size: 13.5px; color: #374151; vertical-align: top;">
+              <td style="padding: 8px 0; font-size: 13.5px; color: ${{textColor}}; vertical-align: top;">
                 <strong>Pre-Cut &amp; Ready:</strong> Zero cutting or measuring required during grief; neat pre-hemmed edges.
               </td>
             </tr>
@@ -1132,18 +1224,16 @@ def generate_preview(recipients: list[dict]) -> str:
 
           <!-- CTA BUTTON -->
           <div style="text-align: center; margin: 30px 0 24px;">
-            <a href="${{WEBSITE_URL}}" style="display: inline-block; background-color: #111827; color: #FBF9F5 !important; text-decoration: none; font-size: 13.5px; font-weight: 600; letter-spacing: 0.5px; padding: 15px 32px; border-radius: 5px; box-shadow: 0 3px 10px rgba(17, 24, 39, 0.2);" target="_blank">
+            <a href="${{WEBSITE_URL}}" style="display: inline-block; background-color: ${{ctaBg}}; color: ${{ctaColor}} !important; text-decoration: none; font-size: 13.5px; font-weight: ${{ctaWeight}}; letter-spacing: 0.5px; padding: 15px 32px; border-radius: 5px; box-shadow: 0 3px 10px rgba(17, 24, 39, 0.2);" target="_blank">
               Explore Sizing &amp; Details on Our Website →
             </a>
           </div>
 
-          
-
-          <p style="margin-top: 24px; font-size: 13.5px; line-height: 1.7; color: #374151;">
+          <p style="margin-top: 24px; font-size: 13.5px; line-height: 1.7; color: ${{textColor}};">
             May Allah (SWT) reward your masjid and volunteers for your dedicated service to the community.
           </p>
 
-          <p style="margin-top: 20px; font-size: 14px; color: #111827;">
+          <p style="margin-top: 20px; font-size: 14px; color: ${{headlineColor}};">
             Warmest regards,<br/>
             <strong>Wasim</strong><br/>
             <span style="font-size: 12px; color: #996515;">Wasim Trader Kaffans</span><br/>
@@ -1153,7 +1243,7 @@ def generate_preview(recipients: list[dict]) -> str:
 
         <!-- FOOTER -->
         <div style="height: 3px; background: linear-gradient(90deg, #111827 0%, #D4AF37 50%, #111827 100%);"></div>
-        <div style="background-color: #111827; padding: 28px 24px; text-align: center; color: #9CA3AF;">
+        <div style="background-color: ${{footerBg}}; padding: 28px 24px; text-align: center; color: #9CA3AF;">
           <div style="font-family: Georgia, serif; font-size: 15px; color: #FBF9F5; margin-bottom: 8px;">
             Wasim Trader Kaffans
           </div>

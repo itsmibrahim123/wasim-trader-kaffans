@@ -15,6 +15,27 @@
   <meta property="og:image" content="KaffanImage.jpeg" />
   <meta property="og:type" content="website" />
 
+  <!-- Color Scheme & Theme Initialization (Prevents FOUC) -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var isDark = saved === "dark" || (!saved && prefersDark);
+        if (isDark) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          var meta = document.querySelector('meta[name="color-scheme"]');
+          if (meta) meta.content = "dark";
+        } else if (saved === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          var meta = document.querySelector('meta[name="color-scheme"]');
+          if (meta) meta.content = "light";
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Google Fonts: Cormorant Garamond, Tajawal, Amiri -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,11 +56,14 @@
     }
 
     :root {
-      /* Backgrounds */
+      color-scheme: light dark;
+
+      /* Base Light Tokens */
       --bg-cream: #FBF9F5;
       --bg-cream-alt: #F5F0E6;
       --bg-white: #FFFFFF;
       --bg-card: #FFFFFF;
+      --nav-bg: rgba(255, 255, 255, 0.94);
 
       /* High-Contrast Typography */
       --text-main: #111827;
@@ -52,7 +76,7 @@
 
       /* Subtle Gold Accents & Badges ONLY (No primary text in gold) */
       --gold-accent: #996515;
-      /* Warm muted gold */
+      --gold-accent-hover: #784F10;
       --gold-bg: rgba(153, 101, 21, 0.08);
       --gold-border: rgba(153, 101, 21, 0.28);
 
@@ -63,9 +87,20 @@
       --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
       --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.08);
 
-      /* Accents */
+      /* Accents & Components */
       --emerald: #059669;
       --emerald-bg: #ECFDF5;
+      --emerald-text: #065F46;
+
+      --table-th-bg: #F9FAFB;
+      --table-hover-bg: #FAFAFA;
+      --badge-dim-bg: #F3F4F6;
+      --input-bg: #F9FAFB;
+      --input-border: #E5E7EB;
+      --input-focus-bg: #FFFFFF;
+      --channel-icon-bg: #F3F4F6;
+      --channel-icon-color: #111827;
+      --card-photo-bg: #FFFFFF;
 
       /* Fonts */
       --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -74,9 +109,92 @@
       --transition: all 0.22s ease;
     }
 
+    /* ──────────────────────────────────────────────────────────
+       DARK THEME TOKENS
+       ────────────────────────────────────────────────────────── */
+    :root[data-theme="dark"],
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) {
+      color-scheme: dark;
+      --bg-cream: #0B0F17;
+      --bg-cream-alt: #111827;
+      --bg-white: #161B22;
+      --bg-card: #161B22;
+      --nav-bg: rgba(11, 15, 23, 0.94);
+
+      --text-main: #F9FAFB;
+      --text-body: #D1D5DB;
+      --text-muted: #9CA3AF;
+      --text-light: #6B7280;
+
+      --gold-accent: #D4AF37;
+      --gold-accent-hover: #E5C358;
+      --gold-bg: rgba(212, 175, 55, 0.12);
+      --gold-border: rgba(212, 175, 55, 0.35);
+
+      --border-neutral: #2D3748;
+      --border-light: #1F2937;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.6);
+      --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.7);
+
+      --emerald: #10B981;
+      --emerald-bg: rgba(16, 185, 129, 0.16);
+      --emerald-text: #34D399;
+
+      --table-th-bg: #111827;
+      --table-hover-bg: #1A2230;
+      --badge-dim-bg: #1F2937;
+      --input-bg: #0B0F17;
+      --input-border: #374151;
+      --input-focus-bg: #111827;
+      --channel-icon-bg: #1F2937;
+      --channel-icon-color: #D4AF37;
+      --card-photo-bg: #111827;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) {
+        color-scheme: dark;
+        --bg-cream: #0B0F17;
+        --bg-cream-alt: #111827;
+        --bg-white: #161B22;
+        --bg-card: #161B22;
+        --nav-bg: rgba(11, 15, 23, 0.94);
+
+        --text-main: #F9FAFB;
+        --text-body: #D1D5DB;
+        --text-muted: #9CA3AF;
+        --text-light: #6B7280;
+
+        --gold-accent: #D4AF37;
+        --gold-accent-hover: #E5C358;
+        --gold-bg: rgba(212, 175, 55, 0.12);
+        --gold-border: rgba(212, 175, 55, 0.35);
+
+        --border-neutral: #2D3748;
+        --border-light: #1F2937;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+        --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.6);
+        --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.7);
+
+        --emerald: #10B981;
+        --emerald-bg: rgba(16, 185, 129, 0.16);
+        --emerald-text: #34D399;
+
+        --table-th-bg: #111827;
+        --table-hover-bg: #1A2230;
+        --badge-dim-bg: #1F2937;
+        --input-bg: #0B0F17;
+        --input-border: #374151;
+        --input-focus-bg: #111827;
+        --channel-icon-bg: #1F2937;
+        --channel-icon-color: #D4AF37;
+        --card-photo-bg: #111827;
+      }
+    }
+
     html {
       scroll-behavior: smooth;
-      color-scheme: light;
     }
 
     body {
@@ -186,6 +304,39 @@
       box-shadow: 0 4px 12px rgba(17, 24, 39, 0.25);
     }
 
+    :root[data-theme="dark"] .btn-primary,
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) .btn-primary {
+      background: var(--gold-accent);
+      color: #0B0F17;
+      border-color: var(--gold-accent);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+    }
+
+    :root[data-theme="dark"] .btn-primary:hover,
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) .btn-primary:hover {
+      background: var(--gold-accent-hover);
+      color: #000000;
+      border-color: var(--gold-accent-hover);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) .btn-primary {
+        background: var(--gold-accent);
+        color: #0B0F17;
+        border-color: var(--gold-accent);
+        font-weight: 700;
+        box-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+      }
+      :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) .btn-primary:hover {
+        background: var(--gold-accent-hover);
+        color: #000000;
+        border-color: var(--gold-accent-hover);
+        box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+      }
+    }
+
     .btn-secondary {
       background: var(--bg-white);
       color: var(--text-main);
@@ -255,7 +406,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.94);
+      background: var(--nav-bg);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-neutral);
@@ -353,6 +504,65 @@
       color: var(--text-main);
       cursor: pointer;
       outline: none;
+    }
+
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-neutral);
+      border-radius: 4px;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+      transform: scale(1.05);
+    }
+
+    .theme-icon-sun {
+      display: none;
+    }
+
+    .theme-icon-moon {
+      display: block;
+    }
+
+    :root[data-theme="dark"] .theme-icon-sun,
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-icon-sun {
+      display: block;
+    }
+
+    :root[data-theme="dark"] .theme-icon-moon,
+    :root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-icon-moon {
+      display: none;
+    }
+
+    :root[data-theme="light"] .theme-icon-sun,
+    :root:has(> head > meta[name="color-scheme"][content="light"]) .theme-icon-sun {
+      display: none;
+    }
+
+    :root[data-theme="light"] .theme-icon-moon,
+    :root:has(> head > meta[name="color-scheme"][content="light"]) .theme-icon-moon {
+      display: block;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) .theme-icon-sun {
+        display: block;
+      }
+      :root:not([data-theme="light"]):not(:has(> head > meta[name="color-scheme"][content="light"])) .theme-icon-moon {
+        display: none;
+      }
     }
 
     .mobile-menu-btn {
@@ -571,7 +781,7 @@
       aspect-ratio: 1 / 1;
       max-height: 420px;
       position: relative;
-      background: #FFFFFF;
+      background: var(--card-photo-bg);
       border-bottom: 1px solid var(--border-neutral);
       overflow: hidden;
       display: flex;
@@ -665,8 +875,8 @@
       align-self: flex-start;
       font-size: 0.76rem;
       font-weight: 600;
-      color: #065F46;
-      background: #D1FAE5;
+      color: var(--emerald-text);
+      background: var(--emerald-bg);
       padding: 0.3rem 0.75rem;
       border-radius: 4px;
       margin-bottom: 1.25rem;
@@ -781,8 +991,8 @@
     }
 
     .unit-switch-btn.active {
-      background: #111827;
-      color: #FFFFFF;
+      background: var(--text-main);
+      color: var(--bg-cream);
     }
 
     .tab-content-panel {
@@ -809,7 +1019,7 @@
     }
 
     .sizing-table th {
-      background: #F9FAFB;
+      background: var(--table-th-bg);
       padding: 1.1rem 1.4rem;
       font-size: 0.74rem;
       letter-spacing: 0.12em;
@@ -831,7 +1041,7 @@
     }
 
     .sizing-table tr:hover td {
-      background: #FAFAFA;
+      background: var(--table-hover-bg);
     }
 
     .arabic-label {
@@ -846,11 +1056,11 @@
       font-family: monospace;
       font-size: 0.84rem;
       font-weight: 600;
-      background: #F3F4F6;
+      background: var(--badge-dim-bg);
       color: var(--text-main);
       padding: 0.25rem 0.55rem;
       border-radius: 4px;
-      border: 1px solid #E5E7EB;
+      border: 1px solid var(--border-neutral);
     }
 
     .table-footnote {
@@ -934,8 +1144,7 @@
 
     .testimonial-quote {
       font-size: 0.96rem;
-      color: #374151;
-      /* Lightened, crisp high contrast */
+      color: var(--text-body);
       line-height: 1.75;
       font-style: italic;
       margin-bottom: 1.75rem;
@@ -949,8 +1158,7 @@
     .testimonial-org {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #111827;
-      /* High contrast against white card */
+      color: var(--text-main);
       margin-bottom: 0.15rem;
       font-family: var(--font-serif);
     }
@@ -1018,8 +1226,8 @@
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: #F3F4F6;
-      color: #111827;
+      background: var(--channel-icon-bg);
+      color: var(--channel-icon-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1028,7 +1236,7 @@
 
     .channel-info h4 {
       font-size: 0.95rem;
-      color: #111827;
+      color: var(--text-main);
       margin-bottom: 0.1rem;
     }
 
@@ -1064,19 +1272,19 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #111827;
+      color: var(--text-main);
     }
 
     .form-field input,
     .form-field select,
     .form-field textarea {
-      background: #F9FAFB;
-      border: 1px solid var(--border-neutral);
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
       border-radius: 6px;
       padding: 0.8rem 1rem;
       font-family: var(--font-sans);
       font-size: 0.92rem;
-      color: #111827;
+      color: var(--text-main);
       outline: none;
       transition: border-color 0.15s ease, background-color 0.15s ease;
       width: 100%;
@@ -1085,8 +1293,8 @@
     .form-field input:focus,
     .form-field select:focus,
     .form-field textarea:focus {
-      border-color: #111827;
-      background: #FFFFFF;
+      border-color: var(--gold-accent);
+      background: var(--input-focus-bg);
     }
 
     .form-field textarea {
@@ -1130,7 +1338,7 @@
       font-family: var(--font-serif);
       font-size: 1.22rem;
       font-weight: 600;
-      color: #111827;
+      color: var(--text-main);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -1158,7 +1366,7 @@
       color: var(--text-body);
       font-size: 0.92rem;
       line-height: 1.7;
-      border-top: 1px solid #F3F4F6;
+      border-top: 1px solid var(--border-neutral);
       padding-top: 1rem;
     }
 
@@ -1415,6 +1623,27 @@
       </ul>
 
       <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button type="button" id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()"
+          aria-label="Toggle Dark Mode" title="Toggle theme (Light / Dark)">
+          <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
         <!-- Live Currency Switcher -->
         <div class="currency-selector" title="Select your local currency">
           <select id="currencySelector" onchange="changeCurrency(this.value)">
@@ -1456,6 +1685,25 @@
         <li><a href="#sample-request" onclick="toggleMobileDrawer()">Contact &amp; Orders</a></li>
         <li><a href="#faq" onclick="toggleMobileDrawer()">Frequently Asked Questions</a></li>
       </ul>
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0; border-top:1px solid var(--border-neutral); border-bottom:1px solid var(--border-neutral);">
+        <span style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-body);">Theme</span>
+        <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+          <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
       <a href="#sample-request" class="btn btn-primary" onclick="toggleMobileDrawer()">Order Kaffan Set</a>
     </div>
   </div>
@@ -2148,6 +2396,33 @@
         toast.classList.remove('show');
       }, 3500);
     }
+
+    // ── Dark / Light Theme Controller ──
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      try {
+        localStorage.setItem('theme', nextTheme);
+      } catch (e) {}
+
+      const meta = document.querySelector('meta[name="color-scheme"]');
+      if (meta) meta.content = nextTheme;
+    }
+
+    // Sync with OS color scheme changes if user hasn't explicitly chosen
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try {
+        if (!localStorage.getItem('theme')) {
+          const next = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          const meta = document.querySelector('meta[name="color-scheme"]');
+          if (meta) meta.content = next;
+        }
+      } catch (err) {}
+    });
   </script>
 
 </body>
