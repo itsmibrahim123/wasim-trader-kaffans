@@ -535,8 +535,7 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     </div>
     <div class="footer-text">
       Serving Muslim communities and funeral committees across the USA, Australia, and New Zealand.<br/>
-      You are receiving this outreach because {footer_mention} is listed as a focal Islamic institution in {country}.<br/>
-      To unsubscribe from future supply announcements, reply with "Unsubscribe" in the subject line.
+      You are receiving this outreach because {footer_mention} is listed as a focal Islamic institution in {country}.
     </div>
   </div>
 
@@ -591,8 +590,6 @@ Wasim
 Wasim Trader Kaffans
 Email: {GMAIL_ADDRESS}
 Website: {WEBSITE_URL}
-
-To unsubscribe, reply with "Unsubscribe" in the subject.
 """
 
     return subject, html_body, plain_body
@@ -1262,8 +1259,7 @@ def generate_preview(recipients: list[dict]) -> str:
           </div>
           <div style="font-size: 11.5px; line-height: 1.6; color: #6B7280;">
             Serving Muslim communities and funeral committees across the USA, Australia, and New Zealand.<br/>
-            You are receiving this outreach because ${{footerMention}} is listed as a focal Islamic institution in ${{country}}.<br/>
-            To unsubscribe from future supply announcements, reply with "Unsubscribe" in the subject line.
+            You are receiving this outreach because ${{footerMention}} is listed as a focal Islamic institution in ${{country}}.
           </div>
         </div>
 
@@ -1325,9 +1321,7 @@ May Allah (SWT) reward your volunteers and community for your service.
 Wasim
 Wasim Trader Kaffans
 Email: ${{GMAIL_ADDRESS}}
-Website: ${{WEBSITE_URL}}
-
-To unsubscribe, reply with "Unsubscribe" in the subject.`;
+Website: ${{WEBSITE_URL}}`;
   }}
 
   // Build Country Filter Pills
