@@ -3,7 +3,7 @@
 Wasim Trader Kaffans — Masjid Cold Email Engine
 ================================================
 Sends a captivating, modern, and respectful HTML cold email to masjids
-from masjid_data.csv featuring the newly redesigned website and sample offer.
+from masjid_data.csv featuring the newly redesigned website and pricing structure.
 
 Features:
 - Beautiful high-contrast responsive HTML email template + plain-text fallback
@@ -114,7 +114,6 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     else:
         wa_url = f"https://wa.me/?text={encoded_wa}"
 
-    sample_box_title = clean_name.title() if clean_name != "your respected masjid" else "Your Masjid"
     footer_mention = clean_name if clean_name != "your respected masjid" else "your masjid"
 
     # HTML Body
@@ -316,26 +315,6 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
     padding: 15px 32px;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(17, 24, 39, 0.2);
-  }}
-  /* Sample Kit Box */
-  .sample-box {{
-    background-color: #FDFBF7;
-    border: 1px dashed #D4AF37;
-    border-radius: 6px;
-    padding: 20px 22px;
-    margin: 26px 0 16px;
-  }}
-  .sample-title {{
-    font-size: 14.5px;
-    font-weight: 700;
-    color: #996515;
-    margin-bottom: 6px;
-  }}
-  .sample-desc {{
-    font-size: 13px;
-    color: #4B5563;
-    line-height: 1.6;
-    margin-bottom: 10px;
   }}
   /* Footer */
   .footer {{
@@ -1030,10 +1009,9 @@ def generate_preview(recipients: list[dict]) -> str:
     const cleanName = rawName || 'your respected masjid';
     const country = m.country || 'International';
     const subject = cleanName === 'your respected masjid' 
-      ? 'Sunnah Kaffan Sets & Complimentary Sample Kit for Your Masjid'
-      : `Sunnah Kaffan Sets & Complimentary Sample Kit for ${{cleanName}}`;
+      ? 'Sunnah Kaffan Sets for Your Masjid — $25 (Delivery Included · Min 100 Pcs)'
+      : `Sunnah Kaffan Sets for ${{cleanName}} — $25 (Delivery Included · Min 100 Pcs)`;
 
-    const sampleTitle = cleanName === 'your respected masjid' ? 'Your Masjid' : cleanName;
     const footerMention = cleanName === 'your respected masjid' ? 'your masjid' : cleanName;
     
     const waText = encodeURIComponent(`As-salamu alaykum, I am inquiring about Kaffan sets for ${{cleanName}}`);
@@ -1285,8 +1263,8 @@ To unsubscribe, reply with "Unsubscribe" in the subject.`;
     const rawName = (m.name || '').trim();
     const cleanName = rawName || 'your respected masjid';
     const subject = cleanName === 'your respected masjid' 
-      ? 'Sunnah Kaffan Sets & Complimentary Sample Kit for Your Masjid'
-      : `Sunnah Kaffan Sets & Complimentary Sample Kit for ${{cleanName}}`;
+      ? 'Sunnah Kaffan Sets for Your Masjid — $25 (Delivery Included · Min 100 Pcs)'
+      : `Sunnah Kaffan Sets for ${{cleanName}} — $25 (Delivery Included · Min 100 Pcs)`;
 
     document.getElementById('meta-name').textContent = rawName || '(Fallback: "your respected masjid")';
     
