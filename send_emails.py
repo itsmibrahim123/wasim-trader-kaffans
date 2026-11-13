@@ -1507,6 +1507,12 @@ Website: ${{WEBSITE_URL}}`;
     return str(out_path.resolve())
 
 
+def connect_smtp():
+    smtp = smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30)
+    smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+    return smtp
+
+
 # ──────────────────────────────────────────────
 # SENDING ENGINE
 # ──────────────────────────────────────────────
@@ -1567,8 +1573,7 @@ def run_campaign(
     # Connect to SMTP
     log.info("🔌 Connecting to Gmail SMTP (smtp.gmail.com:465 SSL)...")
     try:
-        smtp = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-        smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+        smtp = connect_smtp()
         log.info("✅ Authenticated successfully as %s", GMAIL_ADDRESS)
     except Exception as e:
         log.error("❌ SMTP Authentication Failed: %s", e)
@@ -1605,7 +1610,17 @@ def run_campaign(
                 msg.attach(MIMEText(plain_body, "plain", "utf-8"))
                 msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-                smtp.sendmail(GMAIL_ADDRESS, email, msg.as_string())
+                # Try sending; auto-reconnect if Gmail dropped the idle socket
+                try:
+                    smtp.sendmail(GMAIL_ADDRESS, email, msg.as_string())
+                except (smtplib.SMTPServerDisconnected, smtplib.SMTPResponseException, OSError) as conn_err:
+                    log.warning("   ⚠️ SMTP socket disconnected (%s). Reconnecting to Gmail...", conn_err)
+                    try:
+                        smtp = connect_smtp()
+                        smtp.sendmail(GMAIL_ADDRESS, email, msg.as_string())
+                    except Exception as retry_err:
+                        raise retry_err
+
                 log.info("   ✅ SENT successfully to %s", email)
 
                 log_writer.writerow({
@@ -1642,7 +1657,11 @@ def run_campaign(
         log.warning("⚠️ Execution interrupted by user! Progress has been logged.")
 
     finally:
-        smtp.quit()
+        try:
+            if smtp:
+                smtp.quit()
+        except Exception:
+            pass
         log_file.close()
         print("\n" + "=" * 60)
         log.info("🎉 Session Completed! Sent: %d | Failed: %d | Total Processed: %d",
