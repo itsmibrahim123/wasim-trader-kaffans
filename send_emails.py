@@ -450,18 +450,6 @@ def build_email_content(masjid_name: str, country: str) -> tuple[str, str, str]:
       </a>
     </div>
 
-    <!-- FREE SAMPLE OFFER -->
-    <div class="sample-box">
-      <div class="sample-title">🎁 Complimentary Sample Kit for {sample_box_title}</div>
-      <p class="sample-desc">
-        We would be honoured to mail <strong>1 complimentary complete sample set</strong> to your Imam or funeral coordinator so your committee can inspect the fabric weight, softness, opacity, and craftsmanship firsthand.
-      </p>
-      <p style="font-size:12.5px; color:#6B7280; margin:0;">
-        To request your sample kit, simply reply to this email with your shipping address, or reach us on WhatsApp:
-        <a href="{wa_url}" style="color:#059669; font-weight:600; text-decoration:none;" target="_blank">Chat with Us on WhatsApp</a>
-      </p>
-    </div>
-
     <p class="body-text" style="margin-top:24px; font-size:13.5px;">
       May Allah (SWT) reward your masjid and volunteers for your dedicated service to the community.
     </p>
@@ -536,10 +524,7 @@ PRICING & DELIVERY TERMS:
 VIEW SIZING & PRODUCT DETAILS:
 {WEBSITE_URL}
 
-COMPLIMENTARY MASJID SAMPLE KIT:
-We would be honoured to mail 1 complimentary sample kit to your masjid committee so you can inspect the weave, opacity, and pre-cut quality in person. 
-
-Simply reply directly to this email with your preferred mailing address, or message us on WhatsApp: {wa_url}
+To place an order, discuss community reserve stock, or inquire about expedited rush delivery, simply reply directly to this email or contact us on WhatsApp: {wa_url}
 
 May Allah (SWT) reward your volunteers and community for your service.
 
@@ -1162,19 +1147,7 @@ def generate_preview(recipients: list[dict]) -> str:
             </a>
           </div>
 
-          <!-- FREE SAMPLE OFFER -->
-          <div style="background-color: #FDFBF7; border: 1px dashed #D4AF37; border-radius: 6px; padding: 20px 22px; margin: 26px 0 16px;">
-            <div style="font-size: 14.5px; font-weight: 700; color: #996515; margin-bottom: 6px;">
-              🎁 Complimentary Sample Kit for ${{sampleTitle}}
-            </div>
-            <p style="font-size: 13px; color: #4B5563; line-height: 1.6; margin-bottom: 10px;">
-              We would be honoured to mail <strong>1 complimentary complete sample set</strong> to your Imam or funeral coordinator so your committee can inspect the fabric weight, softness, opacity, and craftsmanship firsthand.
-            </p>
-            <p style="font-size: 12.5px; color: #6B7280; margin: 0;">
-              To request your sample kit, simply reply to this email with your shipping address, or reach us on WhatsApp:
-              <a href="${{waUrl}}" style="color: #059669; font-weight: 600; text-decoration: none;" target="_blank">Chat with Us on WhatsApp</a>
-            </p>
-          </div>
+          
 
           <p style="margin-top: 24px; font-size: 13.5px; line-height: 1.7; color: #374151;">
             May Allah (SWT) reward your masjid and volunteers for your dedicated service to the community.
@@ -1257,10 +1230,7 @@ PRICING & DELIVERY TERMS:
 VIEW SIZING & PRODUCT DETAILS:
 ${{WEBSITE_URL}}
 
-COMPLIMENTARY MASJID SAMPLE KIT:
-We would be honoured to mail 1 complimentary sample kit to your masjid committee so you can inspect the weave, opacity, and pre-cut quality in person. 
-
-Simply reply directly to this email with your preferred mailing address, or message us on WhatsApp: ${{waUrl}}
+To place an order, discuss community reserve stock, or inquire about expedited rush delivery, simply reply directly to this email or contact us on WhatsApp: ${{waUrl}}
 
 May Allah (SWT) reward your volunteers and community for your service.
 
