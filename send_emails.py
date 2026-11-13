@@ -39,7 +39,11 @@ from pathlib import Path
 try:
     from dotenv import load_dotenv
     # Load environment variables from .env file
-    load_dotenv()
+    env_path = Path(__file__).parent / ".env"
+    if env_path.exists():
+        load_dotenv(dotenv_path=env_path)
+    else:
+        load_dotenv()
 except ImportError:
     pass
 
@@ -1535,17 +1539,21 @@ def run_campaign(
 # ──────────────────────────────────────────────
 # SINGLE TEST SEND
 # ──────────────────────────────────────────────
-def send_single_test(test_email: str):
-    log.info("🧪 Sending 1 test email to: %s", test_email)
+def send_single_test(test_email: str, first_masjid: dict = None):
+    log.info("🧪 Sending trial email to: %s", test_email)
     if not GMAIL_APP_PASSWORD or GMAIL_APP_PASSWORD.startswith("xxxx"):
         log.error("❌ GMAIL_APP_PASSWORD not configured!")
         log.error("   Please set GMAIL_APP_PASSWORD in your .env file.")
         return
 
     try:
-        subject, html_body, plain_body = build_email_content("Islamic Center Test Masjid", "USA")
+        masjid_name = first_masjid.get("name", "Auburn Gallipoli Mosque") if first_masjid else "Auburn Gallipoli Mosque"
+        country = first_masjid.get("country", "Australia") if first_masjid else "Australia"
+
+        log.info("📧 Using draft for: %s (%s)", masjid_name, country)
+        subject, html_body, plain_body = build_email_content(masjid_name, country)
         msg = MIMEMultipart("alternative")
-        msg["Subject"] = f"[TEST PREVIEW] {subject}"
+        msg["Subject"] = subject
         msg["From"] = f"Wasim Trader Kaffans <{GMAIL_ADDRESS}>"
         msg["To"] = test_email
         msg["Reply-To"] = GMAIL_ADDRESS
@@ -1553,14 +1561,14 @@ def send_single_test(test_email: str):
         msg.attach(MIMEText(plain_body, "plain", "utf-8"))
         msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-        log.info("🔌 Connecting to Gmail SMTP...")
+        log.info("🔌 Connecting to Gmail SMTP (smtp.gmail.com:465 SSL)...")
         smtp = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
         smtp.sendmail(GMAIL_ADDRESS, test_email, msg.as_string())
         smtp.quit()
-        log.info("✅ Test email sent successfully to %s! Check your inbox.", test_email)
+        log.info("✅ Trial email sent successfully to %s! Please check your inbox.", test_email)
     except Exception as e:
-        log.error("❌ Test send failed: %s", e)
+        log.error("❌ Trial send failed: %s", e)
 
 
 # ──────────────────────────────────────────────
@@ -1585,13 +1593,15 @@ def main():
     except Exception:
         delay_range = (20, 40)
 
-    # 1. Test Mode
+    # 1. Load Recipients
+    recipients = load_recipients(args.csv, country_filter=args.country)
+
+    # 2. Test Mode
     if args.test:
-        send_single_test(args.test)
+        first_m = recipients[0] if recipients else None
+        send_single_test(args.test, first_masjid=first_m)
         return
 
-    # 2. Load Recipients
-    recipients = load_recipients(args.csv, country_filter=args.country)
     if not recipients:
         return
 
